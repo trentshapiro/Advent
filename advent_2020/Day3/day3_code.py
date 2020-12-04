@@ -9,8 +9,12 @@ data_in = [i.replace('\n','') for i in data_in]
 
 # pick arbitray big number of times to repeat
 min_reps = 1000
-ski_map = [[k for k in j] for j in [i*min_reps for i in data_in]]
 
+# repeat string rows min_reps times
+ski_map = [i*min_reps for i in data_in]
+
+# blow out each row string to list of chars
+ski_map = [[char for char in i] for i in ski_map]
 
 y_len = len(ski_map)
 x_len = len(ski_map[0])
