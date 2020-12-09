@@ -12,17 +12,12 @@ for idx, value in enumerate(data_in):
     if idx < 25:
         continue
     else:
-        prev_code = data_in[idx-25:idx]
+        prev = data_in[idx-25:idx]
 
         current_value = value
         
-        pairs = []
-        for i in prev_code:
-            for j in prev_code:
-                if i != j:
-                    pairs.append(i+j)
+        pairs = set([i+j for i in prev for j in prev if i!=j])
         
-        pairs = list(set(pairs))
         if current_value not in pairs:
             print('value not in pairs found! ', current_value)
             repeat_value = current_value
