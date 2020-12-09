@@ -13,11 +13,8 @@ for idx, value in enumerate(data_in):
         continue
     else:
         prev = data_in[idx-25:idx]
-
-        current_value = value
-        
+        current_value = value      
         pairs = set([i+j for i in prev for j in prev if i!=j])
-        
         if current_value not in pairs:
             print('value not in pairs found! ', current_value)
             repeat_value = current_value
@@ -37,12 +34,7 @@ for set_length in range(2,30):
                 print('CONTIGUOUS SET FOUND OF LENGTH', set_length)
                 contiguous_set = data_in[idx-set_length:idx]
                 found_flag = True
+                print('Sum of min and max:', min(contiguous_set)+max(contiguous_set))
                 break
     else:
         break
-
-print('Sum of min and max:', min(contiguous_set)+max(contiguous_set))
-               
-               
-               
-               
