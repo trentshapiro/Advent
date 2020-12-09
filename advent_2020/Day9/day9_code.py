@@ -14,7 +14,8 @@ for i in range(0,len(data_in) - window_size):
     current_value = data_in[i+window_size]
     pairs = set([j+k for j in prev for k in prev if j!=k])
     if current_value not in pairs:
-        print('INVALID NUMBER FOUND:', current_value)
+        print(f'INVALID NUMBER FOUND AT POSITION {i+window_size}')
+        print(f'INVALID NUMBER: {current_value}')
         repeat_value = current_value
         break
 
@@ -28,8 +29,8 @@ for set_length in range(2,30):
         if sum(data_in[i:i+set_length]) == repeat_value:
             found_flag = True
             contiguous_set = data_in[i:i+set_length]
-            print('CONTIGUOUS SET FOUND OF LENGTH:', set_length)
-            print('ENCRYPTION WEAKNESS:', min(contiguous_set)+max(contiguous_set))
+            print(f'CONTIGUOUS SET FOUND AT POSITION {i} WITH LENGTH {set_length}')
+            print(f'ENCRYPTION WEAKNESS: {min(contiguous_set)+max(contiguous_set)}')
             break
     if found_flag:
         break
