@@ -17,23 +17,21 @@ print(diffs.count(1) * diffs.count(3))
 
 #part 2
 print('\nPART 2:')
-class node:
-    def __init__(self, name, parents, children):
-        self.name = name
-        self.parents = parents
-        self.children = children
-        self.num_children = len(children)
-        self.num_parents = len(parents)
 
-#create node network
+#convenient class
+class node:
+    def __init__(self, name, children):
+        self.name = name
+        self.children = children
+
+#create nodes
 nodes = []
 for i in volt_list:
     name = i
-    parents = [j for j in volt_list if i-j in (1,2,3)]
     children = [j for j in volt_list if j-i in (1,2,3)]
-    nodes.append(node(i,parents,children))
+    nodes.append(node(i,children))
 
-#get a node value from its name
+#get a node object from its name
 def get_node(name):
     return [i for i in nodes if i.name == name][0]
 
@@ -44,11 +42,14 @@ numbers_searched = {}
 def find_root(starting_node):
     children = starting_node.children
     final_value = 0
+    
+    #count when we hit the final node, otherwise get children
     if children == []:
         return 1
     else:
         children_nodes = [get_node(i) for i in children]
         for node in children_nodes:
+            #if we've already calulated downstream, cool, otherwise calculate
             if node.name in numbers_searched.keys():
                 this_value = numbers_searched[node.name]
             else:
