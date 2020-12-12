@@ -7,7 +7,8 @@ with open(current_day+'_input.txt','r') as f:
 
 data_in = [i.replace('\n','') for i in data_in]
 
-def move_direction(x, y, heading, amount):
+def move_direction(point, heading, amount):
+    x,y = point
     if heading == 'N':
         y += amount
     elif heading == 'S':
@@ -16,7 +17,7 @@ def move_direction(x, y, heading, amount):
         x += amount
     elif heading == 'W':
         x -= amount
-    return x, y
+    return (x, y)
     
 def change_facing(start_dir, turn_dir, amount):
     right_dir = {'N':'E','E':'S','S':'W','W':'N'}
@@ -30,68 +31,56 @@ def change_facing(start_dir, turn_dir, amount):
             new_dir = right_dir[new_dir]
     return new_dir
 
+def move_ship(waypoint, ahip, amount):
+    wp_x, wp_y = waypoint
+    ship_x, ship_y = ship
+    x_mov = amount*(wp_x - ship_x)
+    y_mov = amount*(wp_y - ship_y)
+    return (ship_x+x_mov, ship_y+y_mov), (wp_x+x_mov, wp_y+y_mov)
+
+def rotate_waypoint(waypoint, ship, direction, amount):
+    if direction == 'L':
+        amount = -1 * amount
+    wp_x, wp_y = waypoint
+    ship_x, ship_y = ship
+    radians = np.deg2rad(amount)
+    adj_x = (wp_x - ship_x)
+    adj_y = (wp_y - ship_y)
+    cos_rad = np.cos(radians)
+    sin_rad = np.sin(radians)
+    qx = ship_x + cos_rad * adj_x + sin_rad * adj_y
+    qy = ship_y + -sin_rad * adj_x + cos_rad * adj_y
+    return (int(round(qx)), int(round(qy)))
 
 #Part 1
 facing = 'E'
-ship_x = 0
-ship_y = 0
-
+ship = (0,0)
 for i in data_in:
     action = str(i[0])
     amount = int(i[1:])
-    
     if action in ('N','S','E','W'):
-        ship_x, ship_y = move_direction(ship_x, ship_y, action, amount)
+        ship = move_direction(ship, action, amount)
     elif action == 'F':
-        ship_x, ship_y = move_direction(ship_x, ship_y, facing, amount)
+        ship = move_direction(ship, facing, amount)
     elif action in ('L','R'):
         facing = change_facing(facing, action, amount)
+
 print('Part 1: ')
-print('final x, final y')
-print(ship_x, ship_y)
-print(f'manhattan distance: {abs(ship_x)+abs(ship_y)}')
+print(f'manhattan distance: {abs(ship[0])+abs(ship[1])}')
 
 
-#part 2
-def move_ship(wp_x, wp_y, ship_x, ship_y, amount):
-    x_mov = amount*(wp_x - ship_x)
-    y_mov = amount*(wp_y - ship_y)
-    return ship_x+x_mov, ship_y+y_mov, wp_x+x_mov, wp_y+y_mov
-
-def rotate_waypoint(wp_x, wp_y, ship_x, ship_y, direction, amount):
-    if direction == 'L':
-        amount = -1 * amount
-    
-    offset_x = ship_x
-    offset_y = ship_y
-    x = wp_x
-    y = wp_y
-    
-    radians = np.deg2rad(amount)
-    adjusted_x = (x - offset_x)
-    adjusted_y = (y - offset_y)
-    cos_rad = np.cos(radians)
-    sin_rad = np.sin(radians)
-    qx = offset_x + cos_rad * adjusted_x + sin_rad * adjusted_y
-    qy = offset_y + -sin_rad * adjusted_x + cos_rad * adjusted_y
-    return int(round(qx)), int(round(qy))
-
-ship_x = 0
-ship_y = 0
-wp_x = 10
-wp_y = 1
-
+# part 2
+ship = (0,0)
+waypoint = (10,1)
 for i in data_in:
     action = str(i[0])
     amount = int(i[1:])
     if action in ('N','S','E','W'):
-        wp_x, wp_y = move_direction(wp_x, wp_y, action, amount)
+        waypoint = move_direction(waypoint, action, amount)
     elif action == 'F':
-        ship_x, ship_y, wp_x, wp_y = move_ship(wp_x, wp_y, ship_x, ship_y, amount)
+        ship, waypoint = move_ship(waypoint, ship, amount)
     elif action in ('L','R'):
-        wp_x, wp_y = rotate_waypoint(wp_x, wp_y, ship_x, ship_y, action, amount)
+        waypoint = rotate_waypoint(waypoint, ship, action, amount)
     
 print('\nPart 2:')
-print('final x, final y')
-print(ship_x, ship_y)
-print(f'manhattan distance: {abs(ship_x)+abs(ship_y)}')
+print(f'manhattan distance: {abs(ship[0])+abs(ship[1])}')
