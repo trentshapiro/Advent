@@ -69,7 +69,7 @@ print('Part 1: ')
 print(f'manhattan distance: {abs(ship[0])+abs(ship[1])}')
 
 
-# part 2
+#Part 2
 ship = (0,0)
 waypoint = (10,1)
 for i in data_in:
