@@ -7,7 +7,6 @@ with open(current_day+'_input.txt','r') as f:
 
 data_in = [i.replace('\n','') for i in data_in]
 
-
 #8 directional count empty and full
 def check_direction(board, point, heading, search_len):
     #all traversable directions
@@ -21,7 +20,7 @@ def check_direction(board, point, heading, search_len):
         new_x = point[0]+(search_dir[0]*i)
         new_y = point[1]+(search_dir[1]*i)
         
-        if (min_row<=new_x<=max_row) and (min_col<=new_y<=max_col):
+        if (0<=new_x<=max_row) and (0<=new_y<=max_col):
             value = board[new_x][new_y]
             if value == '#':
                 return 'full'
@@ -54,37 +53,25 @@ def new_board(board, search_len, full_threshold):
         output_board.append(output_row)
     return output_board
 
+#iterate
+def final_board(board, prev_board, search_len, full_threshold):
+    while board != prev_board:
+        prev_board = board
+        board = new_board(prev_board, search_len, full_threshold)
+    return sum([i.count('#') for i in board])
 
 #set up
 starting_board = [[char for char in i] for i in data_in]
-
 max_col = len(starting_board[0]) - 1
 max_row = len(starting_board) - 1
-min_col = 0
-min_row = 0
 
 #Part 1
 print('PART 1: ')
-previous_board = []
-current_board = starting_board
-
-while previous_board != current_board:
-    previous_board = current_board
-    current_board = new_board(previous_board, 1, 4)
-
-print('Steady state found!')
-print(sum([i.count('#') for i in previous_board]))
+print(final_board(starting_board, [], 1, 4))
 
 
 #Part 2
 print('\nPart 2: ')
-previous_board = []
-current_board = starting_board
+print(final_board(starting_board, [], 1000, 5))
 
-while previous_board != current_board:
-    previous_board = current_board
-    current_board = new_board(previous_board, 1000, 5)
-
-print('Steady state found!')
-print(sum([i.count('#') for i in previous_board]))
 
