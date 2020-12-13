@@ -31,6 +31,15 @@ increment = 1
 current_time = 0
 solution = False
 prev_highest_match = 0
+
+#we can realize that for a given bus, the solution will recur every multiple of the bus number, and since they are all
+#in cycles, if we find two in a given range, they will repeat the same sub-pattern within the range [0,LCM(busses)]
+#e.g. for bus 557, we can reduce the search to only be [0,557]
+#   when we find the value (t=516), begin searching with steps of 557 until we find a match of greater length
+#   for bus 557 & 419 we search by increment of 557 starting at the point in time we found the first match (t=516)
+#   when we find the value (t=150349) we know that the cycle of this value is the LCM of (557,419) = 233383
+#   now we only need to search in increments of 233383 until we find the next greatest match, get the LCM of (557,419,next bus)
+#   repeat the process
 while not solution:
     count_match = 0
     for idx,req in enumerate(time_reqs):
@@ -38,14 +47,6 @@ while not solution:
             break
         else:
             count_match+=1
-    
-    #we can realize that for a given bus, the solution will recur every multiple of the bus number
-    #e.g. for bus 557, we can reduce the search to only be [0,557]
-    #when we find the value (t=516), begin searching inside steps of 557 until we find a match of greater length
-    #e.g. for bus 557 & 419 we search by increment of 557 starting at the point in time we found the first match (t=516)
-    #when we find the value (t=150349) we know that the cycle of this value is the LCM of (557,419) = 233383
-    #now we only need to search in increments of 233383 until we find the next greatest match, get the LCM of (557,419,next bus)
-    #repeat the process
 
     if count_match > prev_highest_match:
         print(f'found highest inc at {current_time}, matched {count_match}')
