@@ -8,16 +8,10 @@ with open(current_day+'_input.txt','r') as f:
 data_in = [i.replace('\n','') for i in data_in]
 
 def move_direction(point, heading, amount):
-    x,y = point
-    if heading == 'N':
-        y += amount
-    elif heading == 'S':
-        y -= amount
-    elif heading == 'E':
-        x += amount
-    elif heading == 'W':
-        x -= amount
-    return (x, y)
+    dir = {'N':(0,1),'S':(0,-1),'E':(1,0), 'W':(-1,0)}
+    new_x = point[0] + (dir[heading][0] * amount)
+    new_y = point[1] + (dir[heading][1] * amount)
+    return (new_x, new_y)
     
 def change_facing(start_dir, turn_dir, amount):
     right_dir = {'N':'E','E':'S','S':'W','W':'N'}
@@ -25,10 +19,7 @@ def change_facing(start_dir, turn_dir, amount):
     num_turns = amount // 90
     new_dir = start_dir
     for i in range(0,num_turns):
-        if turn_dir == 'L':
-            new_dir = left_dir[new_dir]
-        elif turn_dir == 'R':
-            new_dir = right_dir[new_dir]
+        new_dir = left_dir[new_dir] if turn_dir == 'L' else right_dir[new_dir]
     return new_dir
 
 def move_ship(waypoint, ahip, amount):
@@ -38,18 +29,11 @@ def move_ship(waypoint, ahip, amount):
     y_mov = amount*(wp_y - ship_y)
     return (ship_x+x_mov, ship_y+y_mov), (wp_x+x_mov, wp_y+y_mov)
 
-def rotate_waypoint(waypoint, ship, direction, amount):
-    if direction == 'L':
-        amount = -1 * amount
-    wp_x, wp_y = waypoint
-    ship_x, ship_y = ship
-    radians = np.deg2rad(amount)
-    adj_x = (wp_x - ship_x)
-    adj_y = (wp_y - ship_y)
-    cos_rad = np.cos(radians)
-    sin_rad = np.sin(radians)
-    qx = ship_x + cos_rad * adj_x + sin_rad * adj_y
-    qy = ship_y + -sin_rad * adj_x + cos_rad * adj_y
+def rotate_waypoint(wp, ship, direction, amount):
+    angle = np.deg2rad(-1 * amount) if direction == 'L' else np.deg2rad(amount)
+    cos_rad, sin_rad = (np.cos(angle), np.sin(angle))
+    qx = ship[0] +  cos_rad * (wp[0] - ship[0]) + sin_rad * (wp[1] - ship[1])
+    qy = ship[1] + -sin_rad * (wp[0] - ship[0]) + cos_rad * (wp[1] - ship[1])
     return (int(round(qx)), int(round(qy)))
 
 #Part 1
