@@ -39,13 +39,18 @@ while not solution:
         else:
             count_match+=1
     
-    #if we find a larger match than the previous one, then we know that a solution
-    #will also be a number offset by the LCM of all busses matched until now, so we
-    #can update our search increment to be this LCM value. 
+    #we can realize that for a given bus, the solution will recur every multiple of the bus number
+    #e.g. for bus 557, we can reduce the search to only be [0,557]
+    #when we find the value (t=516), begin searching inside steps of 557 until we find a match of greater length
+    #e.g. for bus 557 & 419 we search by increment of 557 starting at the point in time we found the first match (t=516)
+    #when we find the value (t=150349) we know that the cycle of this value is the LCM of (557,419) = 233383
+    #now we only need to search in increments of 233383 until we find the next greatest match, get the LCM of (557,419,next bus)
+    #repeat the process
+
     if count_match > prev_highest_match:
         print(f'found highest inc at {current_time}, matched {count_match}')
         bus_ids = [i[0] for i in time_reqs]
-        increment = math.lcm(*[1]+bus_ids[0:count_match])
+        increment = math.lcm(*bus_ids[0:count_match])
         prev_highest_match = count_match
     
     if count_match == len(time_reqs):
