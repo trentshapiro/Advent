@@ -34,12 +34,12 @@ def solve_day14(data_in, part_number):
             mem_update = int(re.findall(r'(?<=\= )[0-9].*', instruction)[0])
             
             if part_number == 1:
-                mem_update_bits = [int(char) for char in '{0:036b}'.format(mem_update)]
-                for idx, bit in enumerate(mem_update_bits):
-                    mem_update_bits[idx] = str(bit) if mask[idx] == 'X' else mask[idx]
+                mem_bits = [int(char) for char in '{0:036b}'.format(mem_update)]
+                for idx, bit in enumerate(mem_bits):
+                    mem_bits[idx] = str(bit) if mask[idx] == 'X' else mask[idx]
                 
-                mem_update_decimal = int(''.join(mem_update_bits),2)
-                memory.update({mem_address:mem_update_decimal})
+                mem_decimal = int(''.join(mem_bits),2)
+                memory.update({mem_address:mem_decimal})
                 
             elif part_number == 2:
                 address_bits = [int(char) for char in '{0:036b}'.format(mem_address)]
