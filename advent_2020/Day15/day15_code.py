@@ -6,35 +6,27 @@ with open(current_day+'_input.txt','r') as f:
 data_in = [i.replace('\n','') for i in data_in]
 data_in = [int(i) for i in data_in[0].split(',')]
 
-
-
-def play_game(starting_data, max_iter):
-    idx = len(starting_data) - 1 
-    final_number = starting_data
-    recent_dict = {}
+def play_game(number_list, max_turn):
+    #initialize register, since values are all based on differences of turn numbers,
+    #the maximum difference is the max_turn - first_turn, or max_turn - 1 
+    register = [0 for i in range(0,max_turn-1)]
     
-    #populate memory dict with initial values and turns {value:last_seen_turn}
-    for idx,num in enumerate(final_number[:-1]):
-        recent_dict.update({num:idx+1})
-
-    #initialize turn_number and value
-    turn_number = len(final_number)
-    current_number = final_number[-1]
+    #populate register with input list, initialize current value
+    for idx,num in enumerate(number_list[:-1]):
+        register[num] = idx+1
+    current_number = number_list[-1]
     
-    
-    while turn_number < max_iter:
+    #play game from turn now to turn max
+    for turn in range(len(number_list), max_turn):
         #if a value is in memory, get age, else 0
-        if current_number in recent_dict.keys():
-            age = turn_number - recent_dict[current_number]
-        else:
-            age = 0
+        register_value = register[current_number]
+        age = turn - register_value if register_value>0 else 0
         
         #update memory of current value to this turn
-        recent_dict.update({current_number:turn_number})
+        register[current_number] = turn
         
         #update iterables
         current_number = age
-        turn_number += 1
         
     return current_number
 
