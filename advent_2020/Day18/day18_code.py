@@ -72,7 +72,7 @@ def eval_eq_ordered(eq_in):
     
     # reduce parenthesis
     reduced_eq_list = []
-    for idx,i in enumerate(eq_list):
+    for i in eq_list:
         if type(i) is list:
             new_value = eval_eq_ordered(i)
             reduced_eq_list.append(new_value)
