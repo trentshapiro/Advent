@@ -4,7 +4,7 @@ import re
 #read data
 current_day = 'day18'
 with open(current_day+'_input.txt','r') as f:
-	data_in = f.readlines()
+    data_in = f.readlines()
 
 data_in = [i.replace('\n','') for i in data_in]
 
@@ -34,34 +34,7 @@ def clean_eq(eq_string):
 
     return ast.literal_eval(fixed_eq)
 
-def eval_eq_sequential(eq_in):
-    current_op = '+'
-    current_val = 0
-    
-    if type(eq_in) is list:
-        eq_list = eq_in
-    else:
-        eq_list = clean_eq(eq_in)
-    
-    for i in eq_list:
-        if type(i) is list:
-            new_value = eval_eq_sequential(i)
-            current_val = eval_math(current_val, new_value, current_op)
-        elif isInt(i):
-            new_value = int(i)
-            current_val = eval_math(current_val, new_value, current_op)
-        elif i in ['*','+']:
-            current_op = i
-    return current_val
-
-def reduce_by_operater(list_in, op):
-    while op in list_in:
-        idx = list_in.index(op)
-        reduced_value = eval_math(int(list_in[idx-1]), int(list_in[idx+1]), op)
-        list_in = list_in[0:idx-1]+[reduced_value]+list_in[idx+2:]
-    return list_in
-
-def eval_eq_ordered(eq_in):
+def eval_eq_sequential(eq_in, ops=['+','*'], ordered=False):
     current_op = '+'
     current_val = 0
     
@@ -74,16 +47,27 @@ def eval_eq_ordered(eq_in):
     reduced_eq_list = []
     for i in eq_list:
         if type(i) is list:
-            new_value = eval_eq_ordered(i)
+            new_value = eval_eq_sequential(i, ops, ordered)
             reduced_eq_list.append(new_value)
         else:
             reduced_eq_list.append(i)
 
     # eval + first
-    reduced_eq_list = reduce_by_operater(reduced_eq_list, '+')
-    reduced_eq_list = reduce_by_operater(reduced_eq_list, '*')
+    if ordered:
+        for op in ops:
+            reduced_eq_list = reduce_sequential(reduced_eq_list, [op])
+    else:
+        reduced_eq_list = reduce_sequential(reduced_eq_list, ops)
 
     return reduced_eq_list[0]
+
+def reduce_sequential(list_in, ops):
+    while any(char in list_in for char in ops):
+        idx = min([list_in.index(op) for op in ops if op in list_in])
+        op = list_in[idx]
+        reduced_value = eval_math(int(list_in[idx-1]), int(list_in[idx+1]), op)
+        list_in = list_in[0:idx-1]+[reduced_value]+list_in[idx+2:]
+    return list_in
 
 
 #Part 1
@@ -93,12 +77,5 @@ print(sum(eq_totals))
 
 #Part 2
 print('\nPart 2: ')
-eq_totals = [eval_eq_ordered(i) for i in data_in]
+eq_totals = [eval_eq_sequential(i, ordered=True) for i in data_in]
 print(sum(eq_totals))
-
-
-
-
-
-
-
