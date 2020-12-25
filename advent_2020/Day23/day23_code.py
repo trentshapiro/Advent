@@ -42,8 +42,6 @@ def play_game(turns, cup_list):
 print('Part 1: ')
 init_cup_config = [int(char) for char in data_in[0]]
 
-#init_cup_config = [3,8,9,1,2,5,4,6,7]
-
 final_cup_config = play_game(100, init_cup_config)
 while final_cup_config[0] != 1:
     final_cup_config = final_cup_config[1:]+[final_cup_config[0]]
