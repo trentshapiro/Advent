@@ -90,16 +90,15 @@ for path in directions_in:
     status_dict.update({final_pos:new_status})
 
 print('Part 1: ')
-print(f'number of instructions: {len(directions_in)}')
-print(f'total number of traveled tiles: {len(status_dict.keys())}')
 print(f'total number of remaining black tiles: {sum(status_dict.values())}')
 
 
 #Part 2
+print('\nPart 2: ')
+
 hex_dict = deepcopy(status_dict)
 for i in range(0,100):
     hex_dict = expand_dict(hex_dict)
     hex_dict = update_dict(hex_dict)
 
-print('/Part 2: ')
 print(f'total number of remaining black tiles: {sum(hex_dict.values())}')
