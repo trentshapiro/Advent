@@ -1,3 +1,7 @@
+"""
+DNF - check_rule copied from https://github.com/mebeim/aoc/blob/master/2020/solutions/day19.py
+"""
+
 #read data
 current_day = 'day19'
 with open(current_day+'_input.txt','r') as f:
