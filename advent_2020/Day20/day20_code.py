@@ -79,12 +79,11 @@ for i in data_in:
     array = [[char for char in i] for i in array if i != '']
     img_dict.update({label: img(label, array)})
 
-#create all combinations of imgs to check, only need to check each pair once
+#list all combinations of imgs to check, only need to check each pair once
 labels = img_dict.keys()
 label_pairs = [i for i in list(itertools.combinations(labels, 2)) if i[0] != i[1]]
 
-#for each pair, get left image [edges] and right [image edges,flipped edges]
-#  if any left image list elems are in the right list, update each img's cons value
+#create list of connections for each img
 for pair in label_pairs:
     i_label, j_label = pair
 
@@ -105,18 +104,19 @@ for pair in label_pairs:
 
 answer = 1
 corners = []
-#any img for which cons is only 2 must be a corner
+#any img with ony 2 connections is a corner piece
 for i in labels:
-    connections = img_dict[i].cons
-    if len(connections) == 2:
-        #corner found
+    if len(img_dict[i].cons) == 2:
+        #multiply corner ids for answer
         corners.append(i)
         answer *= int(i)
 print('Part 1:')
 print(answer)
 
 #part 2
-#start with random corner and build out
+##########################################################
+#find starting corner orientation, set to top left corner
+##########################################################
 start_id = corners[0]
 start_img = img_dict[start_id]
 match_edges = []
@@ -148,7 +148,9 @@ rotations = rotation_map[match_edges]
 for i in range(0,rotations):
     start_img = start_img.rotate_ccw()
 
-#stitch together final image
+##########################################################
+#0 - find label positions in final image, and orient imgs
+##########################################################
 #set up initial image
 start_img.final_pos = (0,0)
 img_dict[start_id] = start_img
@@ -245,19 +247,23 @@ while pos_to_evaluate != []:
                     con_img.final_pos = (img_pos)
                     final_image[img_pos[0]][img_pos[1]] = con_img.label
                     pos_to_evaluate.append(img_pos)
-                    #img_dict.update({con_img.label:con_img})
-                    #img_dict.update({this_img.label:this_img})
-
+    
+    #remove current position from queue
     pos_finished.append(pos_to_evaluate.pop(0))
 
-
-#construct full image
+##########################################################
+#1,2,3 - construct full stitched image
+##########################################################
 cols = []
 for idx in range(0,len(final_image)):
     this_col = []
     for i in [j[idx] for j in final_image]:
         this_img = img_dict[i].array
+        
+        #remove border elements (change to get image number)
+
         img_trunc = [i[1:][:-1] for i in this_img[1:][:-1]]
+        
         for k in img_trunc:
             this_col.append(''.join(k))
     cols.append(this_col)
@@ -267,10 +273,13 @@ for idx in range(0,len(cols[0])):
     this_row = [i[idx] for i in cols]
     rough_waters.append(''.join(this_row))
 
+#parse final image into img class object (to rotate/flip)
 rough_waters = [[char for char in i] for i in rough_waters]
 rough_waters = img('waters',rough_waters)
 
-#Look for dragons
+##########################################################
+#4- search for dragons
+##########################################################
 dragon = [
 '------------------#-',
 '#----##----##----###',
@@ -300,6 +309,7 @@ def is_dragon(sea, point, dragon):
     
     return not not_dragon
 
+#find sea orientation and dragons - rotate, then flip and repeat
 for rot in range(0,4):
     dragons_found = []
     sea = rough_waters.array
@@ -325,7 +335,7 @@ if len(dragons_found) == 0:
         else:
             rough_waters.array = rough_waters.rotate_ccw()
 
-
+#assume none of the dragons overlap, pls 
 count_dragons = len(dragons_found)
 weight_dragon = sum([i.count('#') for i in dragon])
 sea_is_dragon = count_dragons * weight_dragon
