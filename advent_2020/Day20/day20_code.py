@@ -1,6 +1,5 @@
 import itertools
 from copy import deepcopy
-import numpy as np
 
 #read data
 current_day = 'day20'
@@ -10,7 +9,15 @@ with open(current_day+'_input.txt','r') as f:
 data_in  = data_in.split('Tile ')
 data_in = [i for i in data_in if i != '']
 
+#class to hold img and metadata
 class img:
+    '''
+    label: img label
+    array: matrix of image values, e.g. [['.','#'],['#','#']]
+    cons: connected images
+    stitched: connected images that are correctly oriented
+    final_pos: (x,y) of final position in the overall image
+    '''
     def __init__(self, label, array):
         self.label = label
         self.array = array
@@ -62,6 +69,9 @@ class img:
         self.array = m
         return m
 
+#part 1
+
+#load data into dict of images, to reference by labels
 img_dict = {}
 for i in data_in:
     label, array = i.split(':\n')
@@ -69,10 +79,12 @@ for i in data_in:
     array = [[char for char in i] for i in array if i != '']
     img_dict.update({label: img(label, array)})
 
-#all labels
+#create all combinations of imgs to check, only need to check each pair once
 labels = img_dict.keys()
 label_pairs = [i for i in list(itertools.combinations(labels, 2)) if i[0] != i[1]]
 
+#for each pair, get left image [edges] and right [image edges,flipped edges]
+#  if any left image list elems are in the right list, update each img's cons value
 for pair in label_pairs:
     i_label, j_label = pair
 
@@ -91,9 +103,9 @@ for pair in label_pairs:
         i_img.cons = i_cons
         j_img.cons = j_cons
 
-#part 1
 answer = 1
 corners = []
+#any img for which cons is only 2 must be a corner
 for i in labels:
     connections = img_dict[i].cons
     if len(connections) == 2:
@@ -109,6 +121,7 @@ start_id = corners[0]
 start_img = img_dict[start_id]
 match_edges = []
 
+#palatte for final image
 final_image = [[0 for i in range(0,12)] for j in range(0,12)]
 
 #find orientation of starting image:
@@ -124,7 +137,7 @@ for edge in start_img_edges.keys():
             break
 match_edges = str(sorted(match_edges))
 
-#rotate to be top left
+#rotate to be top left based on matched edge pair
 rotation_map = {
     '[0, 3]':3,
     '[0, 1]':2,
@@ -135,16 +148,18 @@ rotations = rotation_map[match_edges]
 for i in range(0,rotations):
     start_img = start_img.rotate_ccw()
 
-#update image
+#stitch together final image
+#set up initial image
 start_img.final_pos = (0,0)
 img_dict[start_id] = start_img
 final_image[0][0] = start_img.label
 
+#define edge mapping for source-target edges given a source-target offset (dx,dy)
 source_edge_match_dict = {
-    (0 , 1): 3,
-    (0 ,-1): 1,
-    (1 , 0): 2,
-    (-1, 0): 0
+    (0 , 1): 3, #right
+    (0 ,-1): 1, #left
+    (1 , 0): 2, #down
+    (-1, 0): 0  #up
 }
 target_edge_match_dict = {
     (0 , 1): 1,
@@ -153,17 +168,19 @@ target_edge_match_dict = {
     (-1, 0): 2
 }
 
-#match images to edges
+#match images to edges - pos_to_evaluate keeps track of queue of new images to build off of
 pos_to_evaluate = [(0,0)]
 pos_finished = []
 label_finished = []
 while pos_to_evaluate != []:
-
+    # initialize left image
     start_x,start_y = pos_to_evaluate[0]
     this_img_id = final_image[start_x][start_y]
     this_img = img_dict[this_img_id]
     this_img_edges = this_img.get_edge_dict()
+    imgs_to_match = this_img.cons
 
+    #find list of positions for which there can be a new image
     test_pos = []
     directions = [(0,1),(0,-1),(1,0),(-1,0)]
     for i in directions:
@@ -172,9 +189,9 @@ while pos_to_evaluate != []:
         if new_x >= 0 and new_y >= 0 and new_x <=11 and new_y<=11:
             test_pos.append((new_x,new_y))
     
-    imgs_to_match = this_img.cons
-
+    # for each positions
     for img_pos in test_pos:
+        #if the position is already placed, update stitched for source and target, and skip
         if final_image[img_pos[0]][img_pos[1]] != 0:
             filled_img = img_dict[final_image[img_pos[0]][img_pos[1]]]
             if filled_img.label not in this_img.stitched:
@@ -183,9 +200,9 @@ while pos_to_evaluate != []:
             if this_img.label not in filled_img.stitched:
                 filled_img.stitched = filled_img.stitched + [this_img.label]
                 img_dict.update({filled_img.label:filled_img})
-            
             continue
 
+        #find the offset of source img to new position, to find which edges to compare
         d_x = img_pos[0] - start_x
         d_y = img_pos[1] - start_y
         source_edge_idx = source_edge_match_dict[(d_x,d_y)]
@@ -193,38 +210,43 @@ while pos_to_evaluate != []:
 
         target_edge_idx = target_edge_match_dict[(d_x,d_y)]
 
+        #for each connected image, check for matching edges
         for con_img in imgs_to_match:
             con_img = img_dict[con_img]
+            #skip any already stitched images
             if con_img.label in this_img.stitched:
                 continue
             else:
                 edge_found = False
                 
-                #rotate ccw, then flip and rotate
-                for i in range(0,3):
+                #rotate ccw, if no matches, flip and repeat
+                for i in range(0,4):
                     this_target_edge = con_img.get_edge_dict()[target_edge_idx]
                     if this_target_edge == source_edge:
                         edge_found = True
                         break
                     else:
-                        con_img.array = con_img.rotate_ccw()
+                        con_img.rotate_ccw()
                 if not edge_found:
-                    con_img.array = con_img.flip_lr()
-                    for i in range(0,3):
+                    con_img.flip_lr()
+                    for i in range(0,4):
                         this_target_edge = con_img.get_edge_dict()[target_edge_idx]
                         if this_target_edge == source_edge:
                             edge_found = True
                             break
                         else:
-                            con_img.array = con_img.rotate_ccw()
+                            con_img.rotate_ccw()
+                #if the edge is found, insert image into final position, update imgs, add new position to evaluation queue
                 if edge_found:
-                    this_img.stitched = this_img.stitched + [con_img.label]
-                    con_img.stitched = con_img.stitched + [this_img.label]
+                    if con_img.label not in this_img.stitched:
+                        this_img.stitched = this_img.stitched + [con_img.label]
+                    if this_img.label not in con_img.stitched:
+                        con_img.stitched = con_img.stitched + [this_img.label]
                     con_img.final_pos = (img_pos)
                     final_image[img_pos[0]][img_pos[1]] = con_img.label
                     pos_to_evaluate.append(img_pos)
-                    img_dict.update({con_img.label:con_img})
-                    img_dict.update({this_img.label:this_img})
+                    #img_dict.update({con_img.label:con_img})
+                    #img_dict.update({this_img.label:this_img})
 
     pos_finished.append(pos_to_evaluate.pop(0))
 
