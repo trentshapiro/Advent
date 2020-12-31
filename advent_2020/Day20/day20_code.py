@@ -100,8 +100,8 @@ for i in labels:
         #corner found
         corners.append(i)
         answer *= int(i)
-#print('Part 1:')
-#print(answer)
+print('Part 1:')
+print(answer)
 
 #part 2
 #start with random corner and build out
@@ -286,7 +286,6 @@ for rot in range(0,4):
             if is_dragon(sea, (i,j), dragon):
                 dragons_found.append((i,j))
     if len(dragons_found) > 0:
-        print('dragons found!')
         break
     else:
         rough_waters.array = rough_waters.rotate_ccw()
@@ -300,7 +299,6 @@ if len(dragons_found) == 0:
                 if is_dragon(sea, (i,j), dragon):
                     dragons_found.append((i,j))
         if len(dragons_found) > 0:
-            print('dragons found!')
             break
         else:
             rough_waters.array = rough_waters.rotate_ccw()
@@ -311,6 +309,7 @@ weight_dragon = sum([i.count('#') for i in dragon])
 sea_is_dragon = count_dragons * weight_dragon
 total_sea = sum([i.count('#') for i in sea])
 
+print('\nPart 2: ')
 print(f'total sea #: {total_sea}')
 print(f'total dragon #: {sea_is_dragon}')
 print(f'total non-dragon sea #: {total_sea - sea_is_dragon}')
