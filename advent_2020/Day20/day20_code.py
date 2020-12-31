@@ -198,10 +198,8 @@ while pos_to_evaluate != []:
             filled_img = img_dict[final_image[img_pos[0]][img_pos[1]]]
             if filled_img.label not in this_img.stitched:
                 this_img.stitched = this_img.stitched + [filled_img.label]
-                img_dict.update({this_img.label:this_img})
             if this_img.label not in filled_img.stitched:
                 filled_img.stitched = filled_img.stitched + [this_img.label]
-                img_dict.update({filled_img.label:filled_img})
             continue
 
         #find the offset of source img to new position, to find which edges to compare
