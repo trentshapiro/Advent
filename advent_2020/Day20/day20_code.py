@@ -259,7 +259,6 @@ for idx in range(0,len(final_image)):
         this_img = img_dict[i].array
         
         #remove border elements (change to get image number)
-
         img_trunc = [i[1:][:-1] for i in this_img[1:][:-1]]
         
         for k in img_trunc:
