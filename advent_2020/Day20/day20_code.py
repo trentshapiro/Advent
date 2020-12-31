@@ -121,7 +121,7 @@ start_id = corners[0]
 start_img = img_dict[start_id]
 match_edges = []
 
-#palatte for final image
+#palette for final image
 final_image = [[0 for i in range(0,12)] for j in range(0,12)]
 
 #find orientation of starting image:
