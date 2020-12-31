@@ -16,6 +16,7 @@ def eval_math(x: int, y: int, op: str) -> int:
     elif op == '*':
         return x*y
 
+
 def clean_eq(eq: str) -> list:
     #replace parenthesis with brackets
     eq = '['+eq.replace('(','[').replace(')',']')+']'
