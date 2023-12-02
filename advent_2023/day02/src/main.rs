@@ -40,16 +40,14 @@ fn evaluate_game(game_line:&str) -> Vec<i32> {
             if count > max_red {
                 max_red = count;
             }
-        }
-        if color == "green" {
+        } else if color == "green" {
             if count > 13 {
                 valid = 0;
             }
             if count > max_green {
                 max_green = count;
             }
-        }
-        if color == "blue" {
+        } else if color == "blue" {
             if count > 14 {
                 valid = 0;
             }
