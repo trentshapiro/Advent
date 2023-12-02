@@ -10,54 +10,35 @@ where P: AsRef<Path>, {
 }
 
 fn evaluate_game(game_line:&str) -> Vec<i32> {
-    let no_game = game_line.split(": ").collect::<Vec<&str>>().into_iter().nth(1).unwrap();
-    let all_commas = str::replace(no_game, ";",",");
+    let (game_num, no_game) = game_line.split_once(": ").unwrap();
+    let all_commas = str::replace(no_game, ";",","); //worthless semi colons
     let all_numbers = all_commas.split(", ").collect::<Vec<&str>>();
 
-    let mut max_red = 0;
-    let mut max_green = 0;
-    let mut max_blue = 0;
-    let mut valid = 1;
+    let mut max_r = 0;
+    let mut max_g = 0;
+    let mut max_b = 0;
+    let mut valid = str::replace(game_num, "Game ","").parse::<i32>().unwrap()
 
     for num in all_numbers {
-        let count = num.split(" ")
-                       .collect::<Vec<&str>>()
-                       .first()
-                       .unwrap()
-                       .to_string()
-                       .parse::<i32>()
-                       .unwrap();
-        let color = num.split(" ")
-                       .collect::<Vec<&str>>()
-                       .last()
-                       .unwrap()
-                       .to_string();
+        let count = num.split(" ").collect::<Vec<&str>>().first().unwrap().to_string().parse::<i32>().unwrap();
+        let color = num.split(" ").collect::<Vec<&str>>().last().unwrap().to_string();
+        
+        valid = match color.as_str() {
+            "red"   => if count > 12 {0} else {valid},
+            "green" => if count > 13 {0} else {valid},
+            "blue"  => if count > 14 {0} else {valid},
+            _ => valid
+        };
 
-        if color == "red" {
-            if count > 12 {
-                valid = 0;
-            }
-            if count > max_red {
-                max_red = count;
-            }
-        } else if color == "green" {
-            if count > 13 {
-                valid = 0;
-            }
-            if count > max_green {
-                max_green = count;
-            }
-        } else if color == "blue" {
-            if count > 14 {
-                valid = 0;
-            }
-            if count > max_blue {
-                max_blue = count;
-            }
+        match color.as_str() {
+            "red"   => if count > max_r {max_r=count},
+            "green" => if count > max_g {max_g=count},
+            "blue"  => if count > max_b {max_b=count},
+            _ => panic!("no matching color!")
         }
     }
 
-    return vec![valid, max_red*max_blue*max_green]
+    return vec![valid, max_r*max_g*max_b]
 }
 
 
@@ -67,12 +48,10 @@ fn main() {
     // File must exist in the current path
     if let Ok(lines) = read_lines("./day02_input.txt") {
         // Consumes the iterator, returns an (Optional) String
-        for (i, line) in lines.enumerate() {
+        for line in lines {
             if let Ok(line_value) = line {
                 let rets = evaluate_game(&line_value);
-                if rets.first().unwrap() > &0 {
-                    total_success += i+1;
-                }
+                total_success += rets.first().unwrap();
                 total_power += rets.last().unwrap();
             }
         }
