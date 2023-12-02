@@ -12,25 +12,23 @@ where P: AsRef<Path>, {
 fn evaluate_game(game_line:&str) -> Vec<i32> {
     let (game_num, no_game) = game_line.split_once(": ").unwrap();
     let all_commas = str::replace(no_game, ";",","); //worthless semi colons
-    let all_numbers = all_commas.split(", ").collect::<Vec<&str>>();
+    let all_rolls = all_commas.split(", ").collect::<Vec<&str>>();
 
-    let mut max_r = 0;
-    let mut max_g = 0;
-    let mut max_b = 0;
-    let mut valid = str::replace(game_num, "Game ","").parse::<i32>().unwrap()
+    let (mut max_r, mut max_g, mut max_b) = (0,0,0);
+    let mut valid = str::replace(game_num, "Game ","").parse::<i32>().unwrap();
 
-    for num in all_numbers {
-        let count = num.split(" ").collect::<Vec<&str>>().first().unwrap().to_string().parse::<i32>().unwrap();
-        let color = num.split(" ").collect::<Vec<&str>>().last().unwrap().to_string();
+    for roll in all_rolls {
+        let (count, color) = roll.split_once(" ").unwrap();
+        count = count.parse::<i32>().unwrap();
         
-        valid = match color.as_str() {
+        valid = match color {
             "red"   => if count > 12 {0} else {valid},
             "green" => if count > 13 {0} else {valid},
             "blue"  => if count > 14 {0} else {valid},
-            _ => valid
+            _ => panic!("no matching color!")
         };
 
-        match color.as_str() {
+        match color {
             "red"   => if count > max_r {max_r=count},
             "green" => if count > max_g {max_g=count},
             "blue"  => if count > max_b {max_b=count},
