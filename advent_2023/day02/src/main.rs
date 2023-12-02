@@ -9,38 +9,7 @@ where P: AsRef<Path>, {
     Ok(io::BufReader::new(file).lines())
 }
 
-fn is_success(game_line:&str) -> bool {
-    let no_game = game_line.split(": ").collect::<Vec<&str>>().into_iter().nth(1).unwrap();
-    let all_commas = str::replace(no_game, ";",",");
-    let all_numbers = all_commas.split(", ").collect::<Vec<&str>>();
-
-    for num in all_numbers {
-        let count = num.split(" ")
-                       .collect::<Vec<&str>>()
-                       .first()
-                       .unwrap()
-                       .to_string()
-                       .parse::<i32>()
-                       .unwrap();
-        let color = num.split(" ")
-                       .collect::<Vec<&str>>()
-                       .last()
-                       .unwrap()
-                       .to_string();
-        if color == "red" && count > 12 {
-            return false
-        }
-        if color == "green" && count > 13 {
-            return false
-        }
-        if color == "blue" && count > 14 {
-            return false
-        }
-    }
-    return true
-}
-
-fn calc_power(game_line:&str) -> i32 {
+fn evaluate_game(game_line:&str) -> Vec<i32> {
     let no_game = game_line.split(": ").collect::<Vec<&str>>().into_iter().nth(1).unwrap();
     let all_commas = str::replace(no_game, ";",",");
     let all_numbers = all_commas.split(", ").collect::<Vec<&str>>();
@@ -48,6 +17,7 @@ fn calc_power(game_line:&str) -> i32 {
     let mut max_red = 0;
     let mut max_green = 0;
     let mut max_blue = 0;
+    let mut valid = 1;
 
     for num in all_numbers {
         let count = num.split(" ")
@@ -63,18 +33,33 @@ fn calc_power(game_line:&str) -> i32 {
                        .unwrap()
                        .to_string();
 
-        if color == "red" && count > max_red {
-            max_red = count;
+        if color == "red" {
+            if count > 12 {
+                valid = 0;
+            }
+            if count > max_red {
+                max_red = count;
+            }
         }
-        if color == "green" && count > max_green {
-            max_green = count;
+        if color == "green" {
+            if count > 13 {
+                valid = 0;
+            }
+            if count > max_green {
+                max_green = count;
+            }
         }
-        if color == "blue" && count > max_blue {
-            max_blue = count;
+        if color == "blue" {
+            if count > 14 {
+                valid = 0;
+            }
+            if count > max_blue {
+                max_blue = count;
+            }
         }
     }
 
-    return max_red*max_blue*max_green
+    return vec![valid, max_red*max_blue*max_green]
 }
 
 
@@ -86,10 +71,11 @@ fn main() {
         // Consumes the iterator, returns an (Optional) String
         for (i, line) in lines.enumerate() {
             if let Ok(line_value) = line {
-                if is_success(&line_value) {
+                let rets = evaluate_game(&line_value);
+                if rets.first().unwrap() > &0 {
                     total_success += i+1;
                 }
-                total_power += calc_power(&line_value);
+                total_power += rets.last().unwrap();
             }
         }
     }
