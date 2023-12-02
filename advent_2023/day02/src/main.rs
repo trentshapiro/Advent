@@ -18,8 +18,8 @@ fn evaluate_game(game_line:&str) -> Vec<i32> {
     let mut valid = str::replace(game_num, "Game ","").parse::<i32>().unwrap();
 
     for roll in all_rolls {
-        let (count, color) = roll.split_once(" ").unwrap();
-        count = count.parse::<i32>().unwrap();
+        let (tc, color) = roll.split_once(" ").unwrap();
+        let count = tc.parse::<i32>().unwrap();
         
         valid = match color {
             "red"   => if count > 12 {0} else {valid},
