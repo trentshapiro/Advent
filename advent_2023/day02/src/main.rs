@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
-//use regex::Regex;
+use fancy_regex::Regex;
 
 fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
 where P: AsRef<Path>, {
@@ -9,34 +9,29 @@ where P: AsRef<Path>, {
     Ok(io::BufReader::new(file).lines())
 }
 
-fn evaluate_game(game_line:&str) -> Vec<i32> {
-    let (game_num, no_game) = game_line.split_once(": ").unwrap();
-    let all_commas = str::replace(no_game, ";",","); //worthless semi colons
-    let all_rolls = all_commas.split(", ").collect::<Vec<&str>>();
+fn evaluate_game(game_line:&str) -> (i32, i32) {
+    let re_r = Regex::new("[0-9]{1,5}(?= red)").unwrap();
+    let re_g = Regex::new("[0-9]{1,5}(?= green)").unwrap();
+    let re_b = Regex::new("[0-9]{1,5}(?= blue)").unwrap();
 
-    let (mut max_r, mut max_g, mut max_b) = (0,0,0);
-    let mut valid = str::replace(game_num, "Game ","").parse::<i32>().unwrap();
+    let max_r: i32 = *re_r.find_iter(game_line)
+        .filter_map(|cap| cap.unwrap().as_str().parse::<i32>().ok())
+        .collect::<Vec<i32>>().iter().max().unwrap();
 
-    for roll in all_rolls {
-        let (tc, color) = roll.split_once(" ").unwrap();
-        let count = tc.parse::<i32>().unwrap();
-        
-        valid = match color {
-            "red"   => if count > 12 {0} else {valid},
-            "green" => if count > 13 {0} else {valid},
-            "blue"  => if count > 14 {0} else {valid},
-            _ => panic!("no matching color!")
-        };
+    let max_g: i32 = *re_g.find_iter(game_line)
+        .filter_map(|cap| cap.unwrap().as_str().parse::<i32>().ok())
+        .collect::<Vec<i32>>().iter().max().unwrap();
 
-        match color {
-            "red"   => if count > max_r {max_r=count},
-            "green" => if count > max_g {max_g=count},
-            "blue"  => if count > max_b {max_b=count},
-            _ => panic!("no matching color!")
-        }
-    }
+    let max_b: i32 = *re_b.find_iter(game_line)
+        .filter_map(|cap| cap.unwrap().as_str().parse::<i32>().ok())
+        .collect::<Vec<i32>>().iter().max().unwrap();
 
-    return vec![valid, max_r*max_g*max_b]
+    
+    let valid = if max_r <= 12 && max_g <= 13 && max_b <= 14 {1} else {0};
+    let power = max_r * max_g * max_b;
+
+    return (valid, power)
+   
 }
 
 
@@ -46,15 +41,15 @@ fn main() {
     // File must exist in the current path
     if let Ok(lines) = read_lines("./day02_input.txt") {
         // Consumes the iterator, returns an (Optional) String
-        for line in lines {
+        for (i, line) in lines.enumerate() {
             if let Ok(line_value) = line {
-                let rets = evaluate_game(&line_value);
-                total_success += rets.first().unwrap();
-                total_power += rets.last().unwrap();
+                let (valid, power) = evaluate_game(&line_value);
+                if valid > 0 {total_success+=i+1};
+                total_power += power;
             }
         }
     }
     
-    println!("Total success: {}",total_success);
-    println!("Total power: {}",total_power);
+    println!("Total success: {}", total_success);
+    println!("Total power: {}", total_power);
 }
