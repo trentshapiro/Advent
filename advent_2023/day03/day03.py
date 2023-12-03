@@ -50,8 +50,6 @@ for row_number, row in enumerate(a):
         continue
 
     for position in star_positions:
-        position_values = [a[x][y] for (x,y) in apply_mask(row_number, position)]
-        
         touch_numbers = []
         left_pos = position[0]-1
         right_pos = position[1]+1
