@@ -31,8 +31,6 @@ print(f"part 1 total: {total}")
 
 
 def get_card_winnings(input_card, results) -> list[int]:
-    if input_card == 0:
-        return [0]
     input_card_wins = results[input_card]
     total_cards_won = []
     if input_card_wins == []:
@@ -44,7 +42,7 @@ def get_card_winnings(input_card, results) -> list[int]:
 
 all_winnings = [i for i in results.keys()]
 for card_num, _ in enumerate(a):
-    all_winnings.extend(get_card_winnings(card_num,results))
+    all_winnings.extend(get_card_winnings(card_num+1,results))
 
 counts = Counter([i for i in all_winnings if i>0])
 
