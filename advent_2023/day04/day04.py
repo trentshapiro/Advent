@@ -1,4 +1,5 @@
 from collections import Counter
+from math import floor
 
 with open("day04_input.txt") as f:
     a = f.readlines()
@@ -9,21 +10,11 @@ results = {}
 
 for idx, line in enumerate(a):
     cards = line.split(": ")[-1]
-    wins = [int(i.strip()) for i in cards.split(" | ")[0].split(" ") if i != '']
-    draws = [int(i.strip()) for i in cards.split(" | ")[1].split(" ") if i != '']
+    wins = [int(i) for i in cards.split(" | ")[0].split(" ") if i != '']
+    draws = [int(i) for i in cards.split(" | ")[1].split(" ") if i != '']
 
-    matches = []
-    for draw in draws:
-        if draw in wins:
-            matches.append(draw)
-    
-    line_total = 0
-    for x, match in enumerate(matches):
-        if x == 0:
-            line_total += 1
-        else:
-            line_total = line_total * 2
-    total+= line_total
+    matches = [i for i in draws if i in wins]
+    total += floor(2**(len(matches)-1))
 
     results[idx+1] = [i for i in range(idx+2,idx+len(matches)+2)]
 
