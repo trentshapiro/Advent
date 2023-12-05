@@ -18,16 +18,15 @@ fn row_value(mixed_string: &str) -> i32{
     let (a,b) = (row_digits.first().unwrap(), row_digits.last().unwrap());
 
     return a*10+b
-
 }
 
 fn sanitize_str(mixed_string: &str) -> String {
     let mut string_out = mixed_string.to_string();
     let num_words = vec!["one","two","three","four","five","six","seven","eight","nine"];
     for (idx, num_word) in num_words.iter().enumerate(){
-        let fixed_str = num_word.to_string().chars().nth(0).unwrap().to_string() +
+        let fixed_str = num_word.chars().nth(0).unwrap().to_string() +
                         &(idx+1).to_string() + 
-                        &num_word.to_string().chars().last().unwrap().to_string();
+                        &num_word.chars().last().unwrap().to_string();
         string_out = string_out.replace(num_word, &fixed_str)
     }
     return string_out
