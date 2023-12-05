@@ -10,25 +10,18 @@ where P: AsRef<Path>, {
 }
 
 fn evaluate_game(game_line:&str) -> (i32, i32) {
-    let re_r = Regex::new("[0-9]{1,5}(?= red)").unwrap();
-    let re_g = Regex::new("[0-9]{1,5}(?= green)").unwrap();
-    let re_b = Regex::new("[0-9]{1,5}(?= blue)").unwrap();
+    let mut c_max:Vec<i32> = vec![];
 
-    let max_r: i32 = *re_r.find_iter(game_line)
-        .filter_map(|cap| cap.unwrap().as_str().parse::<i32>().ok())
+    for color in vec!["red","green","blue"] {
+        let c_re =  Regex::new(&("[0-9]{1,5}(?= ".to_owned()+&color.to_string()+")")).unwrap();
+        let c_val = *c_re.find_iter(game_line)
+        .filter_map(|cap| cap.unwrap().as_str().parse().ok())
         .collect::<Vec<i32>>().iter().max().unwrap();
+        c_max.push(c_val);
+    }
 
-    let max_g: i32 = *re_g.find_iter(game_line)
-        .filter_map(|cap| cap.unwrap().as_str().parse::<i32>().ok())
-        .collect::<Vec<i32>>().iter().max().unwrap();
-
-    let max_b: i32 = *re_b.find_iter(game_line)
-        .filter_map(|cap| cap.unwrap().as_str().parse::<i32>().ok())
-        .collect::<Vec<i32>>().iter().max().unwrap();
-
-    
-    let valid = if max_r <= 12 && max_g <= 13 && max_b <= 14 {1} else {0};
-    let power = max_r * max_g * max_b;
+    let valid = if c_max[0] <= 12 && c_max[1] <= 13 && c_max[2] <= 14 {1} else {0};
+    let power = c_max[0] * c_max[1] * c_max[2];
 
     return (valid, power)
    
