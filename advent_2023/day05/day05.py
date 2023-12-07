@@ -36,7 +36,6 @@ locations = seeds
 for conv in conv_order[1:]:
     locations = [find_map(i, maps[conv]) for i in locations]
 
-#print(min(locations))
 
 #part 2
 def find_map_range(input_value:tuple[int,int], conv_map:list[list[int]]) -> list[tuple[int,int]]:
@@ -77,22 +76,11 @@ def find_map_range(input_value:tuple[int,int], conv_map:list[list[int]]) -> list
         
     return target_overlaps
 
+
 fixed_seeds = [(i,i+j-1) for i,j in zip(seeds,seeds[1:])][::2]
 fixed_locations = fixed_seeds
-
-# for i,j in find_map_range((619_902_767,1_268_617_264),maps["seed_to_soil"]):
-#     print(f"{i},{j}")
-
-for i in fixed_seeds:
-   print(i)
-print('\n')
 for conv in conv_order[1:]:
-    for i in maps[conv]:
-       print(i)
-    print('\n')
     fixed_locations = [find_map_range(loc,maps[conv]) for loc in fixed_locations]
     fixed_locations = [i for j in fixed_locations for i in j] 
-    print(fixed_locations)
-    print('\n')
 
 print(min([i for i,_ in fixed_locations]))
