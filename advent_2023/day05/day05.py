@@ -24,20 +24,6 @@ maps.pop("seeds")
 for k in maps.keys():
     maps[k] = [[int(i) for i in j.split(" ") if j != ""] for j in maps[k]]
 
-# lookup in matrix
-def find_map(input_value:int, conv_map:list[list[int]])->int:
-    for target_min, input_min, val_range in conv_map:
-        if input_value >= input_min and input_value <= input_min + val_range:
-            return target_min + (input_value - input_min)
-    
-    return input_value
-
-locations = seeds
-for conv in conv_order[1:]:
-    locations = [find_map(i, maps[conv]) for i in locations]
-
-
-#part 2
 def find_map_range(input_value:tuple[int,int], conv_map:list[list[int]]) -> list[tuple[int,int]]:
     valid_min, valid_max = input_value
     source_overlaps = []
@@ -76,11 +62,11 @@ def find_map_range(input_value:tuple[int,int], conv_map:list[list[int]]) -> list
         
     return target_overlaps
 
+locations = [(i,i+1) for i in seeds]
+fixed_locations = [(i,i+j-1) for i,j in zip(seeds,seeds[1:])][::2]
 
-fixed_seeds = [(i,i+j-1) for i,j in zip(seeds,seeds[1:])][::2]
-fixed_locations = fixed_seeds
-for conv in conv_order[1:]:
-    fixed_locations = [find_map_range(loc,maps[conv]) for loc in fixed_locations]
-    fixed_locations = [i for j in fixed_locations for i in j] 
-
-print(min([i for i,_ in fixed_locations]))
+for loc in [locations,fixed_locations]:
+    for conv in conv_order[1:]:
+        loc = [find_map_range(i, maps[conv]) for i in loc]
+        loc = [i for j in loc for i in j] 
+    print(min([i for i,_ in loc]))
