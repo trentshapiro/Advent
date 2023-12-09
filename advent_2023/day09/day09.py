@@ -22,5 +22,3 @@ for line in a:
 
 print(sum_right)
 print(sum_left)
-
-
