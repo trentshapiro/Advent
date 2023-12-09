@@ -1,4 +1,3 @@
-
 with open("day09_input.txt") as f:
     a = f.readlines()
     a = [i.replace('\n','') for i in a]
