@@ -35,6 +35,16 @@ CHAR_MAP = {
     "F": ["south","east"],
 }
 
+PRETTY_MAP = {
+    "|": "│",
+    "-": "─",
+    "L": "└",
+    "J": "┘",
+    "7": "┐",
+    "F": "┌",
+    "S": "S"
+}
+
 next_pos = [[start, "start"]]
 
 def get_next_pos(pos,source_dir):
@@ -83,6 +93,8 @@ for row in range(0,len(a)):
                 inside+=1
             else:
                 a[row][col] = "."
+        else:
+            a[row][col] = PRETTY_MAP[a[row][col]]
 
 a = ["".join(i) for i in a]
 
@@ -91,4 +103,3 @@ for i in a:
 
 print(f"Part 1: {(len(next_pos))//2}")
 print(f"Part 2: {inside}")
-
