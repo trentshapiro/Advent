@@ -3,7 +3,7 @@ with open("day13_input.txt") as f:
     a = [i.replace("\n", "") for i in a]
 
 
-def find_smudged_reflection(pattern: list[str], leniency: int, dir: str, excl: dict = None) -> int:
+def find_reflection(pattern: list[str], leniency: int, dir: str, excl: dict = None) -> int:
     prev_lines = [pattern[0]]
     for idx, line in enumerate(pattern[1:]):
         cursor = idx + 1
@@ -28,10 +28,10 @@ idx_1, idx_2 = 0, 0
 for idx, line in enumerate(a):
     if line == "" or idx == len(a) - 1:
         found = {}
-        index = find_smudged_reflection(pattern, 0, "horizontal")
+        index = find_reflection(pattern, 0, "horizontal")
         if index < 0:
             rotated = ["".join(list(reversed(col))) for col in zip(*pattern)]
-            index = find_smudged_reflection(rotated, 0, "vertical")
+            index = find_reflection(rotated, 0, "vertical")
             idx_1 += index
             found["mode"] = "vertical"
         else:
@@ -39,10 +39,10 @@ for idx, line in enumerate(a):
             found["mode"] = "horizontal"
         found["index"] = index
 
-        index = find_smudged_reflection(pattern, 1, "horizontal", found)
+        index = find_reflection(pattern, 1, "horizontal", found)
         if index < 0:
             rotated = ["".join(list(reversed(col))) for col in zip(*pattern)]
-            index = find_smudged_reflection(rotated, 1, "vertical", found)
+            index = find_reflection(rotated, 1, "vertical", found)
             idx_2 += index
         else:
             idx_2 += index * 100
