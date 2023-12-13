@@ -3,37 +3,20 @@ with open("day13_input.txt") as f:
     a = [i.replace("\n", "") for i in a]
 
 
-def find_reflection(pattern: list[str]) -> int:
+def find_smudged_reflection(pattern: list[str], leniency: int, dir: str, excl: dict = None) -> int:
     prev_lines = [pattern[0]]
     for idx, line in enumerate(pattern[1:]):
         cursor = idx + 1
-        if line == prev_lines[-1]:
-            line_count = min(len(prev_lines), len(pattern[cursor:]))
-            rest = pattern[cursor : cursor + line_count]
-            prev = prev_lines[::-1][:line_count]
-            if rest == prev:
-                return cursor
-
-        prev_lines.append(line)
-    return -1
-
-
-def find_smudged_reflection(
-    pattern: list[str], check_type: str, exclusion: dict
-) -> int:
-    prev_lines = [pattern[0]]
-    for idx, line in enumerate(pattern[1:]):
-        cursor = idx + 1
-        if cursor == exclusion["index"] and check_type == exclusion["mode"]:
+        if excl and cursor == excl["index"] and dir == excl["mode"]:
             prev_lines.append(line)
             continue
 
-        if sum(1 for a, b in zip(line, prev_lines[-1]) if a != b) <= 1:
+        if sum(1 for a, b in zip(line, prev_lines[-1]) if a != b) <= leniency:
             line_count = min(len(prev_lines), len(pattern[cursor:]))
             rest = pattern[cursor : cursor + line_count]
             prev = prev_lines[::-1][:line_count]
 
-            if sum(1 for x, y in zip(rest, prev) for i, j in zip(x, y) if i != j) <= 1:
+            if sum(1 for x, y in zip(rest, prev) for i, j in zip(x, y) if i != j) <= leniency:
                 return cursor
 
         prev_lines.append(line)
@@ -44,22 +27,22 @@ pattern = []
 idx_1, idx_2 = 0, 0
 for idx, line in enumerate(a):
     if line == "" or idx == len(a) - 1:
-        found_line_details = {}
-        index = find_reflection(pattern)
+        found = {}
+        index = find_smudged_reflection(pattern, 0, "horizontal")
         if index < 0:
             rotated = ["".join(list(reversed(col))) for col in zip(*pattern)]
-            index = find_reflection(rotated)
+            index = find_smudged_reflection(rotated, 0, "vertical")
             idx_1 += index
-            found_line_details["mode"] = "vertical"
+            found["mode"] = "vertical"
         else:
             idx_1 += index * 100
-            found_line_details["mode"] = "horizontal"
-        found_line_details["index"] = index
+            found["mode"] = "horizontal"
+        found["index"] = index
 
-        index = find_smudged_reflection(pattern, "horizontal", found_line_details)
+        index = find_smudged_reflection(pattern, 1, "horizontal", found)
         if index < 0:
             rotated = ["".join(list(reversed(col))) for col in zip(*pattern)]
-            index = find_smudged_reflection(rotated, "vertical", found_line_details)
+            index = find_smudged_reflection(rotated, 1, "vertical", found)
             idx_2 += index
         else:
             idx_2 += index * 100
