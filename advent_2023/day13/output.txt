@@ -1,0 +1,1601 @@
+Checking potential horizontal reflection at 2
+..#.##....#.#
+..#.##....#.#
+row 0 diffs: 0, total diffs: 0
+##.#.##....##
+##...##....##
+row 1 diffs: 1, total diffs: 1
+found horizontal reflection at 2 
+
+Already found, skipping
+Checking potential vertical reflection at 10
+##.##.#.#.##.
+##.##.#.#.##.
+row 0 diffs: 0, total diffs: 0
+####..##.###.
+####..##.###.
+row 1 diffs: 0, total diffs: 0
+.####.#...##.
+.######...##.
+row 2 diffs: 1, total diffs: 1
+found vertical reflection at 10 
+
+Checking potential horizontal reflection at 1
+#.#...#....
+#.#..##....
+row 0 diffs: 1, total diffs: 1
+found horizontal reflection at 1 
+
+Already found, skipping
+Checking potential vertical reflection at 11
+...######
+...######
+row 0 diffs: 0, total diffs: 0
+###...##.
+###...##.
+row 1 diffs: 0, total diffs: 0
+...#....#
+...#....#
+row 2 diffs: 0, total diffs: 0
+##.....##
+##...#.##
+row 3 diffs: 1, total diffs: 1
+found vertical reflection at 11 
+
+Already found, skipping
+Checking potential horizontal reflection at 8
+....##.#...#.
+....##.##..#.
+row 0 diffs: 1, total diffs: 1
+found horizontal reflection at 8 
+
+Checking potential horizontal reflection at 3
+#...##..####..#
+#...##..####..#
+row 0 diffs: 0, total diffs: 0
+...###...#.#..#
+...###...###..#
+row 1 diffs: 1, total diffs: 1
+..#....##.#.##.
+..#....##.#.##.
+row 2 diffs: 0, total diffs: 1
+found horizontal reflection at 3 
+
+Already found, skipping
+Checking potential vertical reflection at 8
+.##.###..##
+.##.###..##
+row 0 diffs: 0, total diffs: 0
+.####.#.#.#
+.#.##.#.#.#
+row 1 diffs: 1, total diffs: 1
+#....####.#
+#....####.#
+row 2 diffs: 0, total diffs: 1
+#..###..#.#
+#..###..#.#
+row 3 diffs: 0, total diffs: 1
+..#.#...#.#
+..#.#...#.#
+row 4 diffs: 0, total diffs: 1
+found vertical reflection at 8 
+
+Already found, skipping
+Checking potential horizontal reflection at 14
+##.#.#.....
+#..#.#.....
+row 0 diffs: 1, total diffs: 1
+found horizontal reflection at 14 
+
+Already found, skipping
+Checking potential horizontal reflection at 10
+###..##....#..##.
+###..##.#..#..##.
+row 0 diffs: 1, total diffs: 1
+...###.#.#.###.##
+...###.#.#.###.##
+row 1 diffs: 0, total diffs: 1
+#####.......#...#
+#####.......#...#
+row 2 diffs: 0, total diffs: 1
+.##.....#.###..#.
+.##.....#.###..#.
+row 3 diffs: 0, total diffs: 1
+..##.##.##.....#.
+..##.##.##.....#.
+row 4 diffs: 0, total diffs: 1
+#.#...#.#..##..##
+#.#...#.#..##..##
+row 5 diffs: 0, total diffs: 1
+####...#.####..#.
+####...#.####..#.
+row 6 diffs: 0, total diffs: 1
+found horizontal reflection at 10 
+
+Checking potential horizontal reflection at 2
+.#....##.....
+.##...##.....
+row 0 diffs: 1, total diffs: 1
+#...######.##
+#...######.##
+row 1 diffs: 0, total diffs: 1
+found horizontal reflection at 2 
+
+Checking potential horizontal reflection at 8
+####..#####
+####..#####
+row 0 diffs: 0, total diffs: 0
+.##....#.##
+.##....#.##
+row 1 diffs: 0, total diffs: 0
+#.###.##.##
+#.###.##.##
+row 2 diffs: 0, total diffs: 0
+.####...##.
+.####...##.
+row 3 diffs: 0, total diffs: 0
+#.#.#####.#
+#.#.#####.#
+row 4 diffs: 0, total diffs: 0
+#.#......##
+#.#......##
+row 5 diffs: 0, total diffs: 0
+#.###.....#
+#..##.....#
+row 6 diffs: 1, total diffs: 1
+##.........
+##.........
+row 7 diffs: 0, total diffs: 1
+found horizontal reflection at 8 
+
+Already found, skipping
+Checking potential horizontal reflection at 11
+.##########
+.##########
+row 0 diffs: 0, total diffs: 0
+###.#..##.#
+###.#..##.#
+row 1 diffs: 0, total diffs: 0
+..#..#.#.#.
+..#..#.#...
+row 2 diffs: 1, total diffs: 1
+#.##..##.#.
+#.##..##.#.
+row 3 diffs: 0, total diffs: 1
+..#...###.#
+..#...###.#
+row 4 diffs: 0, total diffs: 1
+#.#..##.#..
+#.#..##.#..
+row 5 diffs: 0, total diffs: 1
+found horizontal reflection at 11 
+
+Checking potential horizontal reflection at 15
+###..###.#.
+###..###.#.
+row 0 diffs: 0, total diffs: 0
+.######.##.
+.######.###
+row 1 diffs: 1, total diffs: 1
+found horizontal reflection at 15 
+
+Already found, skipping
+Checking potential vertical reflection at 11
+##..##..#
+#...##..#
+row 0 diffs: 1, total diffs: 1
+.#..#....
+.#..#....
+row 1 diffs: 0, total diffs: 1
+found vertical reflection at 11 
+
+Already found, skipping
+Checking potential vertical reflection at 7
+.##...###..##.#.#
+.##...###...#.#.#
+row 0 diffs: 1, total diffs: 1
+#.###.#####...###
+#.###.#####...###
+row 1 diffs: 0, total diffs: 1
+##..###.##.##..#.
+##..###.##.##..#.
+row 2 diffs: 0, total diffs: 1
+..###..#....##.##
+..###..#....##.##
+row 3 diffs: 0, total diffs: 1
+...###..#..###...
+...###..#..###...
+row 4 diffs: 0, total diffs: 1
+####.#..##...##.#
+####.#..##...##.#
+row 5 diffs: 0, total diffs: 1
+found vertical reflection at 7 
+
+Already found, skipping
+Checking potential horizontal reflection at 2
+#..#.##
+#..####
+row 0 diffs: 1, total diffs: 1
+.#..##.
+#..####
+row 1 diffs: 4, total diffs: 5
+Checking potential horizontal reflection at 6
+####...
+####...
+row 0 diffs: 0, total diffs: 0
+#..#.##
+#..####
+row 1 diffs: 1, total diffs: 1
+.#..##.
+.#..##.
+row 2 diffs: 0, total diffs: 1
+found horizontal reflection at 6 
+
+Already found, skipping
+Checking potential vertical reflection at 9
+.#......#
+.#....#.#
+row 0 diffs: 1, total diffs: 1
+....####.
+....####.
+row 1 diffs: 0, total diffs: 1
+found vertical reflection at 9 
+
+Already found, skipping
+Checking potential horizontal reflection at 6
+####..##.
+.###..##.
+row 0 diffs: 1, total diffs: 1
+found horizontal reflection at 6 
+
+Already found, skipping
+Checking potential vertical reflection at 10
+.#..#....##
+.#..#....##
+row 0 diffs: 0, total diffs: 0
+.#....#....
+.#.#..#....
+row 1 diffs: 1, total diffs: 1
+...##.#..##
+...##.#..##
+row 2 diffs: 0, total diffs: 1
+.##.#..#.##
+.##.#..#.##
+row 3 diffs: 0, total diffs: 1
+####..###.#
+####..###.#
+row 4 diffs: 0, total diffs: 1
+.##..###.#.
+.##..###.#.
+row 5 diffs: 0, total diffs: 1
+####..#..#.
+####..#..#.
+row 6 diffs: 0, total diffs: 1
+found vertical reflection at 10 
+
+Already found, skipping
+Checking potential horizontal reflection at 6
+.#....#..#.
+.#....#..#.
+row 0 diffs: 0, total diffs: 0
+.##.##..##.
+.##.##..##.
+row 1 diffs: 0, total diffs: 0
+.#.#.###.#.
+.#.#.###.#.
+row 2 diffs: 0, total diffs: 0
+########.##
+########.##
+row 3 diffs: 0, total diffs: 0
+#.#..#.#..#
+#.#....#..#
+row 4 diffs: 1, total diffs: 1
+found horizontal reflection at 6 
+
+Checking potential horizontal reflection at 6
+..#..##..##.#
+..#..##..##.#
+row 0 diffs: 0, total diffs: 0
+#######.....#
+#######.....#
+row 1 diffs: 0, total diffs: 0
+#####...##...
+#####...##...
+row 2 diffs: 0, total diffs: 0
+...#.#...#.#.
+...#.....#.#.
+row 3 diffs: 1, total diffs: 1
+..#...##..###
+..#...##..###
+row 4 diffs: 0, total diffs: 1
+###.#..##...#
+###.#..##...#
+row 5 diffs: 0, total diffs: 1
+found horizontal reflection at 6 
+
+Checking potential horizontal reflection at 1
+###.##.
+##..##.
+row 0 diffs: 1, total diffs: 1
+found horizontal reflection at 1 
+
+Checking potential vertical reflection at 2
+#.##.....###.##..
+#.##..#..###.##..
+row 0 diffs: 1, total diffs: 1
+...#.......#####.
+#....#.#....##.##
+row 1 diffs: 7, total diffs: 8
+Already found, skipping
+Checking potential vertical reflection at 12
+#.##..#..###.##..
+#.##.....###.##..
+row 0 diffs: 1, total diffs: 1
+found vertical reflection at 12 
+
+Checking potential horizontal reflection at 4
+....####.......##
+....####.......##
+row 0 diffs: 0, total diffs: 0
+.#.######.#.#.#..
+.#.######.#.#.#..
+row 1 diffs: 0, total diffs: 0
+###......#####...
+####....######...
+row 2 diffs: 2, total diffs: 2
+...#....#.....###
+...#....#.....###
+row 3 diffs: 0, total diffs: 2
+Already found, skipping
+Checking potential vertical reflection at 16
+.#.#..##..#
+##.#..##..#
+row 0 diffs: 1, total diffs: 1
+found vertical reflection at 16 
+
+Checking potential horizontal reflection at 4
+.####..
+.####..
+row 0 diffs: 0, total diffs: 0
+#....##
+.#..#..
+row 1 diffs: 5, total diffs: 5
+.####..
+.####..
+row 2 diffs: 0, total diffs: 5
+.#..#..
+##..###
+row 3 diffs: 3, total diffs: 8
+Checking potential vertical reflection at 3
+#.#.##.#.
+#.#.##.#.
+row 0 diffs: 0, total diffs: 0
+.##.#####
+.##.#####
+row 1 diffs: 0, total diffs: 0
+#..#....#
+...#....#
+row 2 diffs: 1, total diffs: 1
+found vertical reflection at 3 
+
+Already found, skipping
+Checking potential vertical reflection at 8
+#..####..
+#..####..
+row 0 diffs: 0, total diffs: 0
+....##..#
+....##..#
+row 1 diffs: 0, total diffs: 0
+#####..##
+#####..##
+row 2 diffs: 0, total diffs: 0
+####.##.#
+####.##.#
+row 3 diffs: 0, total diffs: 0
+#..#..##.
+#..#..##.
+row 4 diffs: 0, total diffs: 0
+####.....
+####...#.
+row 5 diffs: 1, total diffs: 1
+.##.#..##
+.##.#..##
+row 6 diffs: 0, total diffs: 1
+found vertical reflection at 8 
+
+Checking potential horizontal reflection at 2
+###.##.######..
+###.##.###.##..
+row 0 diffs: 1, total diffs: 1
+.#......#..##..
+#........#.####
+row 1 diffs: 6, total diffs: 7
+Checking potential vertical reflection at 5
+...##.#..#..#.##.
+...##.#..#..#.##.
+row 0 diffs: 0, total diffs: 0
+..#...##..##.....
+..#...##..##.....
+row 1 diffs: 0, total diffs: 0
+##..####.####.##.
+##..####.####.##.
+row 2 diffs: 0, total diffs: 0
+.#.#.#.#.##.####.
+.#.#.#.#.##.####.
+row 3 diffs: 0, total diffs: 0
+#.####..#.###.###
+#.####..#####.###
+row 4 diffs: 1, total diffs: 1
+found vertical reflection at 5 
+
+Checking potential vertical reflection at 5
+#....##
+#.....#
+row 0 diffs: 1, total diffs: 1
+.#.##.#
+.#.##.#
+row 1 diffs: 0, total diffs: 1
+.....##
+.....##
+row 2 diffs: 0, total diffs: 1
+.##.#.#
+.##.#.#
+row 3 diffs: 0, total diffs: 1
+.#.#...
+.#.#...
+row 4 diffs: 0, total diffs: 1
+found vertical reflection at 5 
+
+Already found, skipping
+Checking potential vertical reflection at 1
+..###.##.##
+#.###.##.##
+row 0 diffs: 1, total diffs: 1
+found vertical reflection at 1 
+
+Already found, skipping
+Checking potential vertical reflection at 4
+#..#.#.#...#.##
+#..#.#.#...#.##
+row 0 diffs: 0, total diffs: 0
+#####..#.###..#
+#####..#.###..#
+row 1 diffs: 0, total diffs: 0
+#..###.......##
+#..###.......##
+row 2 diffs: 0, total diffs: 0
+####.#..####...
+######..####...
+row 3 diffs: 1, total diffs: 1
+found vertical reflection at 4 
+
+Already found, skipping
+Checking potential vertical reflection at 3
+#.#..#.#.#..#
+#.#..#.#.#..#
+row 0 diffs: 0, total diffs: 0
+..####..#.###
+..####..#####
+row 1 diffs: 1, total diffs: 1
+############.
+############.
+row 2 diffs: 0, total diffs: 1
+found vertical reflection at 3 
+
+Checking potential horizontal reflection at 4
+###.#...#
+###.#...#
+row 0 diffs: 0, total diffs: 0
+#.#####..
+#.######.
+row 1 diffs: 1, total diffs: 1
+#...#####
+#...#####
+row 2 diffs: 0, total diffs: 1
+.##.####.
+.##.####.
+row 3 diffs: 0, total diffs: 1
+found horizontal reflection at 4 
+
+Already found, skipping
+Checking potential vertical reflection at 14
+.##.#####..
+###.#####..
+row 0 diffs: 1, total diffs: 1
+found vertical reflection at 14 
+
+Checking potential horizontal reflection at 7
+.#####.###.
+.#####.###.
+row 0 diffs: 0, total diffs: 0
+.##.####.##
+.##.####.##
+row 1 diffs: 0, total diffs: 0
+#...#.####.
+#...######.
+row 2 diffs: 1, total diffs: 1
+.#..#.#.#..
+.#..#.#.#..
+row 3 diffs: 0, total diffs: 1
+#..#.######
+#..#.######
+row 4 diffs: 0, total diffs: 1
+.###...#.#.
+.###...#.#.
+row 5 diffs: 0, total diffs: 1
+...###..##.
+...###..##.
+row 6 diffs: 0, total diffs: 1
+found horizontal reflection at 7 
+
+Checking potential horizontal reflection at 2
+.##..###..####..#
+.##..####.####..#
+row 0 diffs: 1, total diffs: 1
+####..#..###.####
+####..#..###.####
+row 1 diffs: 0, total diffs: 1
+found horizontal reflection at 2 
+
+Checking potential vertical reflection at 4
+.#.#.#...
+.#.#.#...
+row 0 diffs: 0, total diffs: 0
+.##.#.##.
+.##.#.##.
+row 1 diffs: 0, total diffs: 0
+#...###.#
+#...###.#
+row 2 diffs: 0, total diffs: 0
+#..#.....
+#.##.....
+row 3 diffs: 1, total diffs: 1
+found vertical reflection at 4 
+
+Already found, skipping
+Checking potential horizontal reflection at 7
+.####..
+.####..
+row 0 diffs: 0, total diffs: 0
+..#...#
+..#...#
+row 1 diffs: 0, total diffs: 0
+#####.#
+#####.#
+row 2 diffs: 0, total diffs: 0
+.#....#
+.#.#..#
+row 3 diffs: 1, total diffs: 1
+found horizontal reflection at 7 
+
+Checking potential horizontal reflection at 2
+##..#..##.#..
+##..#..##.#..
+row 0 diffs: 0, total diffs: 0
+##.####...##.
+##..###...##.
+row 1 diffs: 1, total diffs: 1
+found horizontal reflection at 2 
+
+Already found, skipping
+Checking potential vertical reflection at 1
+##..###..##.#.##.
+##..###...#.#.##.
+row 0 diffs: 1, total diffs: 1
+found vertical reflection at 1 
+
+Checking potential vertical reflection at 5
+#######.#..
+#######.##.
+row 0 diffs: 1, total diffs: 1
+.###.##.##.
+.###.##.##.
+row 1 diffs: 0, total diffs: 1
+.###.#..###
+.###.#..###
+row 2 diffs: 0, total diffs: 1
+#.....####.
+#.....####.
+row 3 diffs: 0, total diffs: 1
+#...#......
+#...#......
+row 4 diffs: 0, total diffs: 1
+found vertical reflection at 5 
+
+Already found, skipping
+Checking potential horizontal reflection at 7
+....##.##.#
+..#.##.##.#
+row 0 diffs: 1, total diffs: 1
+.##.##....#
+#.#........
+row 1 diffs: 5, total diffs: 6
+.#...##..##
+..###.#..#.
+row 2 diffs: 6, total diffs: 12
+.##...#..#.
+...####..##
+row 3 diffs: 6, total diffs: 18
+#..#####.##
+...####..##
+row 4 diffs: 2, total diffs: 20
+#..#..#..#.
+..###.#..#.
+row 5 diffs: 3, total diffs: 23
+#.####....#
+#.#........
+row 6 diffs: 4, total diffs: 27
+Checking potential vertical reflection at 8
+.......##......
+...#...##......
+row 0 diffs: 1, total diffs: 1
+#.####....####.
+#.####....####.
+row 1 diffs: 0, total diffs: 1
+##.#.####..##..
+##.#.####..##..
+row 2 diffs: 0, total diffs: 1
+found vertical reflection at 8 
+
+Checking potential horizontal reflection at 5
+#....##..#.
+#....##..#.
+row 0 diffs: 0, total diffs: 0
+.##...#####
+.##....####
+row 1 diffs: 1, total diffs: 1
+.##.#...#..
+.##.#...#..
+row 2 diffs: 0, total diffs: 1
+....#######
+....#######
+row 3 diffs: 0, total diffs: 1
+.##...####.
+.##...####.
+row 4 diffs: 0, total diffs: 1
+found horizontal reflection at 5 
+
+Checking potential vertical reflection at 2
+##.#...
+##.#..#
+row 0 diffs: 1, total diffs: 1
+#.#..##
+#.#..##
+row 1 diffs: 0, total diffs: 1
+found vertical reflection at 2 
+
+Checking potential vertical reflection at 2
+....#.##.
+#...#.##.
+row 0 diffs: 1, total diffs: 1
+#..###..#
+#..###..#
+row 1 diffs: 0, total diffs: 1
+found vertical reflection at 2 
+
+Already found, skipping
+Checking potential vertical reflection at 1
+#..#..#..####.#
+#..#..#..##.#.#
+row 0 diffs: 1, total diffs: 1
+found vertical reflection at 1 
+
+Checking potential horizontal reflection at 7
+....#####......##
+....#####......##
+row 0 diffs: 0, total diffs: 0
+#.#.#.##.######.#
+#.#...##.######.#
+row 1 diffs: 1, total diffs: 1
+found horizontal reflection at 7 
+
+Checking potential horizontal reflection at 5
+..##..####.
+..##..###..
+row 0 diffs: 1, total diffs: 1
+.#..#..####
+.#..#..####
+row 1 diffs: 0, total diffs: 1
+found horizontal reflection at 5 
+
+Checking potential horizontal reflection at 7
+..#.##.#..#.#..
+..#.##.#..#.#..
+row 0 diffs: 0, total diffs: 0
+#.#....#.######
+.#.#..#.#....##
+row 1 diffs: 11, total diffs: 11
+....##....#..##
+.#..##..#..##..
+row 2 diffs: 7, total diffs: 18
+#........###...
+..##..##.......
+row 3 diffs: 8, total diffs: 26
+Checking potential vertical reflection at 5
+.#.##.#.##.
+.#.##.#.##.
+row 0 diffs: 0, total diffs: 0
+.....#.####
+.....#.###.
+row 1 diffs: 1, total diffs: 1
+..###..#..#
+..###..#..#
+row 2 diffs: 0, total diffs: 1
+.....##.#.#
+.....##.#.#
+row 3 diffs: 0, total diffs: 1
+#.#......#.
+#.#......#.
+row 4 diffs: 0, total diffs: 1
+found vertical reflection at 5 
+
+Already found, skipping
+Checking potential vertical reflection at 8
+#....##.###
+#....##.###
+row 0 diffs: 0, total diffs: 0
+#.##.#####.
+#....#.#...
+row 1 diffs: 5, total diffs: 5
+..##..####.
+##..##...#.
+row 2 diffs: 9, total diffs: 14
+.......####
+#....###..#
+row 3 diffs: 5, total diffs: 19
+.#..#...#.#
+##..####.#.
+row 4 diffs: 7, total diffs: 26
+#....###.#.
+#########..
+row 5 diffs: 6, total diffs: 32
+#....###.#.
+.#..#.#...#
+row 6 diffs: 7, total diffs: 39
+.#..#...#.#
+######..#.#
+row 7 diffs: 4, total diffs: 43
+Checking potential vertical reflection at 14
+#....###.#.
+#....###.#.
+row 0 diffs: 0, total diffs: 0
+.#..#...#.#
+.#..#...#.#
+row 1 diffs: 0, total diffs: 0
+.......###.
+.......####
+row 2 diffs: 1, total diffs: 1
+found vertical reflection at 14 
+
+Already found, skipping
+Checking potential horizontal reflection at 9
+.###..####...#.##
+.###..####...#.##
+row 0 diffs: 0, total diffs: 0
+...#.#...#..####.
+...#.#...#..####.
+row 1 diffs: 0, total diffs: 0
+......#..#....#.#
+......##.#....#.#
+row 2 diffs: 1, total diffs: 1
+#.##..#.....#...#
+#.##..#.....#...#
+row 3 diffs: 0, total diffs: 1
+.#.....#.#.###..#
+.#.....#.#.###..#
+row 4 diffs: 0, total diffs: 1
+#..##.####...####
+#..##.####...####
+row 5 diffs: 0, total diffs: 1
+found horizontal reflection at 9 
+
+Checking potential horizontal reflection at 11
+#.#..###.######
+#.#..###.###.##
+row 0 diffs: 1, total diffs: 1
+#.#.....#.#.###
+#.#.....#.#.###
+row 1 diffs: 0, total diffs: 1
+found horizontal reflection at 11 
+
+Checking potential horizontal reflection at 5
+.#..#.#
+##..#.#
+row 0 diffs: 1, total diffs: 1
+#.#.###
+#.#.###
+row 1 diffs: 0, total diffs: 1
+.....#.
+.....#.
+row 2 diffs: 0, total diffs: 1
+#.###.#
+#.###.#
+row 3 diffs: 0, total diffs: 1
+##.#.#.
+##.#.#.
+row 4 diffs: 0, total diffs: 1
+found horizontal reflection at 5 
+
+Checking potential horizontal reflection at 2
+........#..
+........##.
+row 0 diffs: 1, total diffs: 1
+..#..#.....
+..#..#.....
+row 1 diffs: 0, total diffs: 1
+found horizontal reflection at 2 
+
+Checking potential horizontal reflection at 7
+##....#..#.
+##....#..#.
+row 0 diffs: 0, total diffs: 0
+.#.##...#..
+.#.##.#.#..
+row 1 diffs: 1, total diffs: 1
+.....####.#
+.....####.#
+row 2 diffs: 0, total diffs: 1
+..##.######
+..##.######
+row 3 diffs: 0, total diffs: 1
+.###..##.##
+.###..##.##
+row 4 diffs: 0, total diffs: 1
+.###..###.#
+.###..###.#
+row 5 diffs: 0, total diffs: 1
+..#..#####.
+..#..#####.
+row 6 diffs: 0, total diffs: 1
+found horizontal reflection at 7 
+
+Checking potential horizontal reflection at 4
+..#..##....###.##
+..#..##....###.##
+row 0 diffs: 0, total diffs: 0
+..##.##...#...#.#
+..#..##...#...#.#
+row 1 diffs: 1, total diffs: 1
+.#######..#.###.#
+.#######..#.###.#
+row 2 diffs: 0, total diffs: 1
+.##.#.##.#.#.#..#
+.##.#.##.#.#.#..#
+row 3 diffs: 0, total diffs: 1
+found horizontal reflection at 4 
+
+Checking potential horizontal reflection at 9
+.##....###.
+..#....###.
+row 0 diffs: 1, total diffs: 1
+##.##.###..
+##.##.###..
+row 1 diffs: 0, total diffs: 1
+##.##.###..
+..#.##.##..
+row 2 diffs: 6, total diffs: 7
+.##....###.
+..###..#.##
+row 3 diffs: 5, total diffs: 12
+..#....###.
+#.#..##.##.
+row 4 diffs: 4, total diffs: 16
+##.##.###..
+.##.##..###
+row 5 diffs: 8, total diffs: 24
+Already found, skipping
+Checking potential horizontal reflection at 13
+..#....###.
+.##....###.
+row 0 diffs: 1, total diffs: 1
+##.##.###..
+##.##.###..
+row 1 diffs: 0, total diffs: 1
+found horizontal reflection at 13 
+
+Checking potential horizontal reflection at 9
+###..#.
+####.#.
+row 0 diffs: 1, total diffs: 1
+##...#.
+##...#.
+row 1 diffs: 0, total diffs: 1
+#####..
+#####..
+row 2 diffs: 0, total diffs: 1
+..####.
+..####.
+row 3 diffs: 0, total diffs: 1
+####..#
+####..#
+row 4 diffs: 0, total diffs: 1
+...#.##
+...#.##
+row 5 diffs: 0, total diffs: 1
+found horizontal reflection at 9 
+
+Checking potential horizontal reflection at 7
+##.######
+##.######
+row 0 diffs: 0, total diffs: 0
+.##..##..
+#####..##
+row 1 diffs: 7, total diffs: 7
+###......
+.########
+row 2 diffs: 7, total diffs: 14
+###......
+....####.
+row 3 diffs: 7, total diffs: 21
+.##..##..
+..#####.#
+row 4 diffs: 4, total diffs: 25
+##.######
+#.#.#..#.
+row 5 diffs: 6, total diffs: 31
+##.######
+.##.####.
+row 6 diffs: 4, total diffs: 35
+Already found, skipping
+Checking potential horizontal reflection at 13
+##.######
+##.######
+row 0 diffs: 0, total diffs: 0
+#####..##
+.##..##..
+row 1 diffs: 7, total diffs: 7
+Checking potential vertical reflection at 6
+.###..###.###.#
+.###..###.###.#
+row 0 diffs: 0, total diffs: 0
+###....#####.##
+###....########
+row 1 diffs: 1, total diffs: 1
+###....####.#..
+###....####.#..
+row 2 diffs: 0, total diffs: 1
+found vertical reflection at 6 
+
+Checking potential horizontal reflection at 4
+#.#..#....#.##.##
+###..#....#.##.##
+row 0 diffs: 1, total diffs: 1
+#..##......#..#..
+#..##......#..#..
+row 1 diffs: 0, total diffs: 1
+##.#....#...#....
+##.#....#...#....
+row 2 diffs: 0, total diffs: 1
+..#...#.....###..
+..#...#.....###..
+row 3 diffs: 0, total diffs: 1
+found horizontal reflection at 4 
+
+Checking potential horizontal reflection at 4
+.....####
+...#.####
+row 0 diffs: 1, total diffs: 1
+#......#.
+#......#.
+row 1 diffs: 0, total diffs: 1
+.#.#####.
+.#.#####.
+row 2 diffs: 0, total diffs: 1
+#.#..###.
+#.#..###.
+row 3 diffs: 0, total diffs: 1
+found horizontal reflection at 4 
+
+Checking potential horizontal reflection at 10
+...#.####
+...#.####
+row 0 diffs: 0, total diffs: 0
+##.#...#.
+##.....#.
+row 1 diffs: 1, total diffs: 1
+..##.##.#
+..##.##.#
+row 2 diffs: 0, total diffs: 1
+found horizontal reflection at 10 
+
+Checking potential vertical reflection at 6
+.##....#.#####.
+.##....#.#####.
+row 0 diffs: 0, total diffs: 0
+...#.####...#.#
+...#.####...#.#
+row 1 diffs: 0, total diffs: 0
+##..####..#..#.
+##..####..#..#.
+row 2 diffs: 0, total diffs: 0
+####......##..#
+####......##..#
+row 3 diffs: 0, total diffs: 0
+#......#....##.
+#.#....#....##.
+row 4 diffs: 1, total diffs: 1
+####.#.##.#..#.
+####.#.##.#..#.
+row 5 diffs: 0, total diffs: 1
+found vertical reflection at 6 
+
+Already found, skipping
+Checking potential vertical reflection at 1
+.......####..##
+.......###...##
+row 0 diffs: 1, total diffs: 1
+found vertical reflection at 1 
+
+Already found, skipping
+Checking potential vertical reflection at 1
+...#.##.#..
+.#.#.##.#..
+row 0 diffs: 1, total diffs: 1
+found vertical reflection at 1 
+
+Already found, skipping
+Checking potential vertical reflection at 6
+.#..#....#.
+.#..#....#.
+row 0 diffs: 0, total diffs: 0
+.....####..
+..#..####..
+row 1 diffs: 1, total diffs: 1
+###.######.
+###.######.
+row 2 diffs: 0, total diffs: 1
+###...##...
+###...##...
+row 3 diffs: 0, total diffs: 1
+####.#..#.#
+####.#..#.#
+row 4 diffs: 0, total diffs: 1
+#.#.##..##.
+#.#.##..##.
+row 5 diffs: 0, total diffs: 1
+found vertical reflection at 6 
+
+Checking potential horizontal reflection at 1
+##..#.#..###...
+#...#.#..###...
+row 0 diffs: 1, total diffs: 1
+found horizontal reflection at 1 
+
+Checking potential horizontal reflection at 11
+.#.##....
+.#.##....
+row 0 diffs: 0, total diffs: 0
+.##.##..#
+.##..#..#
+row 1 diffs: 1, total diffs: 1
+###.#.##.
+###.#.##.
+row 2 diffs: 0, total diffs: 1
+...#.....
+...#.....
+row 3 diffs: 0, total diffs: 1
+found horizontal reflection at 11 
+
+Checking potential horizontal reflection at 2
+.##########..
+.##########..
+row 0 diffs: 0, total diffs: 0
+..##.##.#.#..
+..##.##.#....
+row 1 diffs: 1, total diffs: 1
+found horizontal reflection at 2 
+
+Checking potential horizontal reflection at 1
+...#..#.#..#..##.
+...#..#.#..#.###.
+row 0 diffs: 1, total diffs: 1
+found horizontal reflection at 1 
+
+Already found, skipping
+Checking potential horizontal reflection at 6
+##.###.
+##.####
+row 0 diffs: 1, total diffs: 1
+###..##
+...##.#
+row 1 diffs: 6, total diffs: 7
+.##..##
+#.#.##.
+row 2 diffs: 4, total diffs: 11
+Checking potential horizontal reflection at 8
+.##..##
+###..##
+row 0 diffs: 1, total diffs: 1
+found horizontal reflection at 8 
+
+Already found, skipping
+Checking potential horizontal reflection at 9
+.##..#..#.##...
+.##..#..#.##...
+row 0 diffs: 0, total diffs: 0
+#..###.#####..#
+#..###.#####..#
+row 1 diffs: 0, total diffs: 0
+...##.#..#..#..
+...##.#..#..#..
+row 2 diffs: 0, total diffs: 0
+#..###..#..#.#.
+#..###..##.#.#.
+row 3 diffs: 1, total diffs: 1
+##.##.#####.#..
+##.##.#####.#..
+row 4 diffs: 0, total diffs: 1
+##.#.#.#....###
+##.#.#.#....###
+row 5 diffs: 0, total diffs: 1
+found horizontal reflection at 9 
+
+Checking potential horizontal reflection at 8
+###..###.
+###..###.
+row 0 diffs: 0, total diffs: 0
+#####.##.
+#####.##.
+row 1 diffs: 0, total diffs: 0
+..##...#.
+..##...#.
+row 2 diffs: 0, total diffs: 0
+...##.###
+...##.###
+row 3 diffs: 0, total diffs: 0
+..#.##.#.
+..#.##...
+row 4 diffs: 1, total diffs: 1
+..#.#..##
+..#.#..##
+row 5 diffs: 0, total diffs: 1
+..##.##.#
+..##.##.#
+row 6 diffs: 0, total diffs: 1
+##.##....
+##.##....
+row 7 diffs: 0, total diffs: 1
+found horizontal reflection at 8 
+
+Already found, skipping
+Checking potential vertical reflection at 2
+.#.####
+.#..###
+row 0 diffs: 1, total diffs: 1
+..#.#..
+..#.###
+row 1 diffs: 2, total diffs: 3
+Checking potential vertical reflection at 5
+#..#.##
+#..####
+row 0 diffs: 1, total diffs: 1
+..#.#..
+..#.#..
+row 1 diffs: 0, total diffs: 1
+found vertical reflection at 5 
+
+Checking potential horizontal reflection at 12
+....#.#####...#..
+....#.####....#..
+row 0 diffs: 1, total diffs: 1
+####.#.#.#.##.##.
+####.#.#.#.##.##.
+row 1 diffs: 0, total diffs: 1
+###...##...##.#.#
+###...##...##.#.#
+row 2 diffs: 0, total diffs: 1
+found horizontal reflection at 12 
+
+Already found, skipping
+Checking potential vertical reflection at 2
+......###
+......#.#
+row 0 diffs: 1, total diffs: 1
+..##..#.#
+##..####.
+row 1 diffs: 8, total diffs: 9
+Checking potential vertical reflection at 11
+..##..#..
+..##..#..
+row 0 diffs: 0, total diffs: 0
+.####.#..
+.####.#..
+row 1 diffs: 0, total diffs: 0
+..##.....
+..##.....
+row 2 diffs: 0, total diffs: 0
+.#..#..#.
+.#..#..#.
+row 3 diffs: 0, total diffs: 0
+#.##.##..
+#.##.##.#
+row 4 diffs: 1, total diffs: 1
+.####.#.#
+.####.#.#
+row 5 diffs: 0, total diffs: 1
+found vertical reflection at 11 
+
+Checking potential horizontal reflection at 7
+##.###...#.###.##
+##.###...#.###.##
+row 0 diffs: 0, total diffs: 0
+#.#####..###.##..
+#.######.###.##..
+row 1 diffs: 1, total diffs: 1
+found horizontal reflection at 7 
+
+Already found, skipping
+Checking potential vertical reflection at 2
+##..#..
+##.....
+row 0 diffs: 1, total diffs: 1
+#.#....
+.##.###
+row 1 diffs: 5, total diffs: 6
+Checking potential vertical reflection at 4
+###....
+#.#....
+row 0 diffs: 1, total diffs: 1
+##..#..
+##..#..
+row 1 diffs: 0, total diffs: 1
+##.....
+##.....
+row 2 diffs: 0, total diffs: 1
+.##.###
+.##.###
+row 3 diffs: 0, total diffs: 1
+found vertical reflection at 4 
+
+Checking potential horizontal reflection at 3
+..##..##..##...
+..##..##..##...
+row 0 diffs: 0, total diffs: 0
+#........#.#...
+#........#.#...
+row 1 diffs: 0, total diffs: 0
+##.####.####.##
+.#.####.#.##.##
+row 2 diffs: 2, total diffs: 2
+Checking potential horizontal reflection at 10
+###....###.#.##
+###....###.#..#
+row 0 diffs: 1, total diffs: 1
+found horizontal reflection at 10 
+
+Already found, skipping
+Checking potential vertical reflection at 7
+#..#...##...#
+#..#...##...#
+row 0 diffs: 0, total diffs: 0
+..###########
+..###########
+row 1 diffs: 0, total diffs: 0
+##...#.##.#..
+##...#.##.#..
+row 2 diffs: 0, total diffs: 0
+..#...#..#...
+.##...#..#...
+row 3 diffs: 1, total diffs: 1
+found vertical reflection at 7 
+
+Already found, skipping
+Checking potential horizontal reflection at 8
+..##.##..
+..##.##..
+row 0 diffs: 0, total diffs: 0
+.##.#..#.
+.##.#..#.
+row 1 diffs: 0, total diffs: 0
+#..######
+#..######
+row 2 diffs: 0, total diffs: 0
+.##...#..
+.##...#..
+row 3 diffs: 0, total diffs: 0
+##.#...##
+##.#...##
+row 4 diffs: 0, total diffs: 0
+..####.#.
+.#####.#.
+row 5 diffs: 1, total diffs: 1
+##.#..#.#
+##.#..#.#
+row 6 diffs: 0, total diffs: 1
+found horizontal reflection at 8 
+
+Checking potential horizontal reflection at 7
+#..##.####.###.
+#..##.####.###.
+row 0 diffs: 0, total diffs: 0
+.........##...#
+.........##...#
+row 1 diffs: 0, total diffs: 0
+....#...##.##..
+....#...##.##..
+row 2 diffs: 0, total diffs: 0
+....###.#..#...
+....###.#..##..
+row 3 diffs: 1, total diffs: 1
+########.#.##..
+########.#.##..
+row 4 diffs: 0, total diffs: 1
+.##.......##..#
+.##.......##..#
+row 5 diffs: 0, total diffs: 1
+found horizontal reflection at 7 
+
+Checking potential horizontal reflection at 1
+##..###.#
+##..##..#
+row 0 diffs: 1, total diffs: 1
+found horizontal reflection at 1 
+
+Already found, skipping
+Checking potential vertical reflection at 2
+#.##.##..#####...
+#.##.##..#####...
+row 0 diffs: 0, total diffs: 0
+....#..#....#.###
+....#..#.#..#.###
+row 1 diffs: 1, total diffs: 1
+found vertical reflection at 2 
+
+Already found, skipping
+Checking potential vertical reflection at 9
+###.#..####.#
+###.#..####.#
+row 0 diffs: 0, total diffs: 0
+..######.....
+..##.###.....
+row 1 diffs: 1, total diffs: 1
+found vertical reflection at 9 
+
+Checking potential horizontal reflection at 2
+.##..##.#...##...
+###..##.#...##...
+row 0 diffs: 1, total diffs: 1
+..#.###.#.#....#.
+..#.###.#.#....#.
+row 1 diffs: 0, total diffs: 1
+found horizontal reflection at 2 
+
+Already found, skipping
+Checking potential vertical reflection at 4
+#.#..#.##.#
+#.#..#.##.#
+row 0 diffs: 0, total diffs: 0
+#.##..#..#.
+#.##..#..#.
+row 1 diffs: 0, total diffs: 0
+###...#..#.
+###.#.#..#.
+row 2 diffs: 1, total diffs: 1
+#.#..######
+#.#..######
+row 3 diffs: 0, total diffs: 1
+found vertical reflection at 4 
+
+Checking potential vertical reflection at 3
+.###.#.#.
+.###.#.#.
+row 0 diffs: 0, total diffs: 0
+#.###..##
+#####..##
+row 1 diffs: 1, total diffs: 1
+.##.#.#..
+.##.#.#..
+row 2 diffs: 0, total diffs: 1
+found vertical reflection at 3 
+
+Checking potential horizontal reflection at 1
+.....##.#...#
+.#...##.#...#
+row 0 diffs: 1, total diffs: 1
+found horizontal reflection at 1 
+
+Checking potential vertical reflection at 6
+#.##.#....#..
+#.##.#....#..
+row 0 diffs: 0, total diffs: 0
+....##.#....#
+....##.#....#
+row 1 diffs: 0, total diffs: 0
+..###...##..#
+..###...##..#
+row 2 diffs: 0, total diffs: 0
+..#..#.#.###.
+..#..#.#.###.
+row 3 diffs: 0, total diffs: 0
+..#..#.#..#.#
+..#..#.#..#.#
+row 4 diffs: 0, total diffs: 0
+##...##.....#
+.#...##.....#
+row 5 diffs: 1, total diffs: 1
+found vertical reflection at 6 
+
+Checking potential horizontal reflection at 3
+####.###..#..##
+####..##..#..##
+row 0 diffs: 1, total diffs: 1
+##.###.#...####
+##.###.#...####
+row 1 diffs: 0, total diffs: 1
+##.#.###..#.#.#
+##.#.###..#.#.#
+row 2 diffs: 0, total diffs: 1
+found horizontal reflection at 3 
+
+Already found, skipping
+Checking potential horizontal reflection at 6
+########.##
+########.##
+row 0 diffs: 0, total diffs: 0
+...#..####.
+...#..####.
+row 1 diffs: 0, total diffs: 0
+#..#.#.....
+#..#.#.....
+row 2 diffs: 0, total diffs: 0
+.#..#..#.##
+.#..#..#.##
+row 3 diffs: 0, total diffs: 0
+#.#.####..#
+#.#.#.##..#
+row 4 diffs: 1, total diffs: 1
+found horizontal reflection at 6 
+
+Already found, skipping
+Checking potential vertical reflection at 11
+..##..#.#.#
+..##..#.#.#
+row 0 diffs: 0, total diffs: 0
+##.....##..
+##.....##..
+row 1 diffs: 0, total diffs: 0
+##.#.#.#.#.
+##.#.#.#.#.
+row 2 diffs: 0, total diffs: 0
+...#.##.##.
+...#.##.##.
+row 3 diffs: 0, total diffs: 0
+##.#..#....
+##.#.##....
+row 4 diffs: 1, total diffs: 1
+###....##..
+###....##..
+row 5 diffs: 0, total diffs: 1
+found vertical reflection at 11 
+
+Already found, skipping
+Checking potential horizontal reflection at 8
+##.#.#.#.#.
+##.#.#.#.#.
+row 0 diffs: 0, total diffs: 0
+##.#.#.....
+##.#.......
+row 1 diffs: 1, total diffs: 1
+#.#...##.##
+#.#...##.##
+row 2 diffs: 0, total diffs: 1
+found horizontal reflection at 8 
+
+Checking potential horizontal reflection at 3
+##..#..####
+##..#..####
+row 0 diffs: 0, total diffs: 0
+..##...####
+..##..#####
+row 1 diffs: 1, total diffs: 1
+...##.....#
+...##.....#
+row 2 diffs: 0, total diffs: 1
+found horizontal reflection at 3 
+
+Already found, skipping
+Checking potential horizontal reflection at 13
+....###..
+....###..
+row 0 diffs: 0, total diffs: 0
+..##.##..
+..##.##..
+row 1 diffs: 0, total diffs: 0
+#####.#..
+#####.#..
+row 2 diffs: 0, total diffs: 0
+#.##..#.#
+#.##..#..
+row 3 diffs: 1, total diffs: 1
+found horizontal reflection at 13 
+
+Checking potential vertical reflection at 1
+.#.#..#
+...#..#
+row 0 diffs: 1, total diffs: 1
+found vertical reflection at 1 
+
+Already found, skipping
+Checking potential vertical reflection at 8
+..#.#######
+..#.#######
+row 0 diffs: 0, total diffs: 0
+#.#.#......
+###.#......
+row 1 diffs: 1, total diffs: 1
+##..#..##..
+##..#..##..
+row 2 diffs: 0, total diffs: 1
+.#.##.#..#.
+.#.##.#..#.
+row 3 diffs: 0, total diffs: 1
+..#.##.##.#
+..#.##.##.#
+row 4 diffs: 0, total diffs: 1
+found vertical reflection at 8 
+
+Checking potential horizontal reflection at 8
+..#.##.#.####.#
+..#.##.#.####.#
+row 0 diffs: 0, total diffs: 0
+....#..#..#.#..
+....#..#..#.#.#
+row 1 diffs: 1, total diffs: 1
+#.#.#......##..
+#.#.#......##..
+row 2 diffs: 0, total diffs: 1
+#..###..##..#.#
+#..###..##..#.#
+row 3 diffs: 0, total diffs: 1
+##.#..#..#..#.#
+##.#..#..#..#.#
+row 4 diffs: 0, total diffs: 1
+...#.##.#.##.#.
+...#.##.#.##.#.
+row 5 diffs: 0, total diffs: 1
+...##..##.#..#.
+...##..##.#..#.
+row 6 diffs: 0, total diffs: 1
+.###..#.#...###
+.###..#.#...###
+row 7 diffs: 0, total diffs: 1
+found horizontal reflection at 8 
+
+Already found, skipping
+Checking potential vertical reflection at 13
+.#..#...#..#.##
+.#..#...#..#.##
+row 0 diffs: 0, total diffs: 0
+###.###.##..###
+###.###.##..###
+row 1 diffs: 0, total diffs: 0
+.##...#..#.#...
+.##...#..#.#...
+row 2 diffs: 0, total diffs: 0
+#.#.#..#.###...
+#.#.#..#####...
+row 3 diffs: 1, total diffs: 1
+found vertical reflection at 13 
+
+Already found, skipping
+Checking potential vertical reflection at 12
+...#...##.#.##
+...#...##.#.##
+row 0 diffs: 0, total diffs: 0
+.#..###..#..##
+.##.###..#..##
+row 1 diffs: 1, total diffs: 1
+....#####..#..
+....#####..#..
+row 2 diffs: 0, total diffs: 1
+####.#.#..#...
+####.#.#..#...
+row 3 diffs: 0, total diffs: 1
+#.#...#...#.##
+#.#...#...#.##
+row 4 diffs: 0, total diffs: 1
+found vertical reflection at 12 
+
+total horizontal 2: 345
+total vertical 2: 295
+Part 2: 34795
