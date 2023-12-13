@@ -31,17 +31,15 @@ def check_string(i_str:str, i_groups:tuple[int])->int:
     return broken
 
 total_valid = 0
+total_valid_2 = 0
 for line in a:
     i_str, i_groups = line.split(" ")
     i_groups = [int(i) for i in i_groups.split(",")]
-    i_str = i_str.strip(".")
     total_valid += check_string(i_str,tuple(i_groups))
-print(f"part 1: {total_valid}")
 
-total_valid = 0
-for line in a:
-    i_str, i_groups = line.split(" ")
-    i_groups = [int(i) for i in i_groups.split(",")]*5
-    i_str = "?".join([i_str]*5)
-    total_valid += check_string(i_str,tuple(i_groups))
-print(f"part 2: {total_valid}")
+    i_groups_2 = i_groups*5
+    i_str_2 = "?".join([i_str]*5)
+    total_valid_2 += check_string(i_str_2,tuple(i_groups_2))
+
+print(f"part 1: {total_valid}")
+print(f"part 2: {total_valid_2}")
