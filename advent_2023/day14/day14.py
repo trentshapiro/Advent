@@ -1,16 +1,17 @@
 import numpy as np
+from typing import Iterable
 
 with open("day14_input.txt") as f:
     a = f.readlines()
-    a = np.array([list(i.replace("\n", "")) for i in a])
+    a = [list(i.replace("\n", "")) for i in a]
 
 
-def sort_row(input_row: tuple):
+def sort_row(input_row: Iterable[str]) -> list[str]:
     sub_row = ["".join(sorted(i)) for i in "".join(input_row).split("#")]
     return list("#".join(sub_row))
 
 
-def spin(input_mat: np.array, rotate: bool) -> list[str]:
+def spin(input_mat: Iterable[Iterable[str]], rotate: bool) -> list[list[str]]:
     output_mat = np.rot90(input_mat, 3)
     output_mat = np.apply_along_axis(sort_row, 1, output_mat)
 
@@ -33,7 +34,7 @@ slid = spin(a, False)
 print(f"Part 1: {mat_value(slid)}")
 
 # 2
-prev_states = [a.tolist()]
+prev_states = [a]
 for i in range(1, 1_000_000_000):
     state = spin(prev_states[-1], rotate=True)
     if state not in prev_states:
