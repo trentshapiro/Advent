@@ -1,6 +1,5 @@
 import queue
 from copy import deepcopy
-from collections import Counter
 
 with open("day20_input.txt") as f:
     a = [i.replace("\n", "") for i in f.readlines()]
