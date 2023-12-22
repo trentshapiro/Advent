@@ -1,4 +1,4 @@
-from collections import deque
+from queue import Queue
 
 with open("day21_input.txt") as f:
     a = [list(i.replace("\n", "")) for i in f.readlines()]
@@ -22,12 +22,13 @@ for row_num, row in enumerate(a):
             BLOCKS.add((row_num, col_num))
 
 
-def walk_board_bounded(board, start_pos, max_steps):
+def walk_board(board, start_pos, max_steps):
     out = 0
     visited = set()
-    q = deque([(start_pos, 0)])
-    while q:
-        pos, steps = q.popleft()
+    q = Queue()
+    q.put((start_pos, 0))
+    while not q.empty():
+        pos, steps = q.get()
 
         if pos in visited:
             continue
@@ -41,25 +42,21 @@ def walk_board_bounded(board, start_pos, max_steps):
 
         for heading in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             new_pos = tuple([x + y for x, y in zip(pos, heading)])
-            adj_pos = (new_pos[0] % len(a), new_pos[1] % len(a[0]))
+            adj_pos = (new_pos[0] % len(board), new_pos[1] % len(board[0]))
             if adj_pos in BLOCKS:
                 continue
-            q.append((new_pos, steps + 1))
+            q.put((new_pos, steps + 1))
 
     return out
 
 
-print(f"Part 1: {walk_board_bounded(a, start_pos, 64)}")
+print(f"Part 1: {walk_board(a, start_pos, 64)}")
 
 # Part 2
 steps_to_take = 26501365
 
 n = steps_to_take // len(a[0])
 
-walk_lengths = []
-
-for i in range(0, 3):
-    walk_lengths.append(walk_board_bounded(a, start_pos, i * len(a[0]) + start_pos[1]))
-a, b, c = walk_lengths
+a, b, c = [walk_board(a, start_pos, i * len(a[0]) + start_pos[1]) for i in range(0, 3)]
 quadratic_magic = a + n * (b - a + (n - 1) * (c - 2 * b + a) // 2)
 print(f"Part 2: {quadratic_magic}")
