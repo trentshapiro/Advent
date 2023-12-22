@@ -53,9 +53,9 @@ def walk_board(board, start_pos, max_steps):
 print(f"Part 1: {walk_board(a, start_pos, 64)}")
 
 # Part 2
-steps_to_take = 26501365
+max_steps = 26501365
 
-n = steps_to_take // len(a[0])
+n = max_steps // len(a[0])
 
 a, b, c = [walk_board(a, start_pos, i * len(a[0]) + start_pos[1]) for i in range(0, 3)]
 quadratic_magic = a + n * (b - a + (n - 1) * (c - 2 * b + a) // 2)
